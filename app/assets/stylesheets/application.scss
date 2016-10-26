@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+// "bootstrap/variables"
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'lessons';
