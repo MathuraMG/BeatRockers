@@ -12,6 +12,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
+    @students = Student.all
   end
 
   # GET /sections/new
