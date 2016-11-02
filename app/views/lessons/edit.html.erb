@@ -1,6 +1,13 @@
-<h1>Editing Lesson</h1>
+
+<div class="container">
+<br/>
+<%= link_to 'Show', @lesson %> |
+<%= link_to 'Back', lessons_path %>
+
+<div class="text-center">
+<h1>Editing Student</h1>
+</div>
 
 <%= render 'form', lesson: @lesson %>
 
-<%= link_to 'Show', @lesson %> |
-<%= link_to 'Back', lessons_path %>
+</div>

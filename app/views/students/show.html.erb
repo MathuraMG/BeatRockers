@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
-
+<div class = "container text-center">
+<br>
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %><p id="notice"><%= notice %></p>
+<br>
 <p>
   <strong>Name:</strong>
   <%= @student.name %>
 </p>
-
+<br>
 <p>
   <strong>Age:</strong>
   <%= @student.age %>
 </p>
-
+<br>
 <p>
   <strong>Gender:</strong>
   <%= @student.gender %>
 </p>
-
+<br>
 <p>
   <strong>Studentid:</strong>
   <%= @student.studentID %>
 </p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+</div>

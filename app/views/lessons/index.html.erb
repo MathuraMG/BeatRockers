@@ -1,13 +1,14 @@
+<div class="container text-center">
+<br>
 <p id="notice"><%= notice %></p>
-
 <h1>Lessons</h1>
 
-<table>
+<table class ="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Notes</th>
-      <th>Tags</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Notes</th>
+      <th class="text-center">Tags</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,4 +33,5 @@
 
 <br>
 
-<%= link_to 'New Lesson', new_lesson_path %>
+<button type="button" class="btn btn-default"><%= link_to 'New Lesson', new_lesson_path %></button>
+</div>
