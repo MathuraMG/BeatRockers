@@ -3,6 +3,13 @@
 <p>
   <strong>Name:</strong>
   <%= @audio.name %>
+  <audio controls>
+    <source src="<%= @audio.file.url %>" type="audio/mpeg">
+  </audio>
+
+  <% @audio.students.each do |student| %>
+    <%= @students.find(student).name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_audio_path(@audio) %> |

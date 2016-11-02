@@ -20,3 +20,5 @@ waveform test.wav Hai.png
 * Add a colour to the tags
 * classify by tags
 * add section detail to show in students
+* switch to postgres
+* How does audio addition work??

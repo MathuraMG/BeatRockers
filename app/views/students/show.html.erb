@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Back', students_path %>
-<%= link_to 'Edit', edit_student_path(@student) %> 
+<%= link_to 'Edit', edit_student_path(@student) %>
 
 <p>
   <strong>Name:</strong>
@@ -13,7 +13,10 @@
   <%= @student.age %>
 </p>
 
-<!-- <p>
-  <strong>Gender:</strong>
-  <%= @student.gender %>
-</p> -->
+<% @student.sections.each do |section| %>
+  <%= @sections.find(section).name %>
+<% end %>
+
+<% @student.audios.each do |audio| %>
+  <%= @audios.find(audio).name %>
+<% end %>
