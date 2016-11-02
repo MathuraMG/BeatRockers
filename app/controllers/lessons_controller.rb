@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  before_filter :authorize
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   # GET /lessons

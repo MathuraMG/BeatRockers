@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_filter :authorize
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 
   # GET /sections
