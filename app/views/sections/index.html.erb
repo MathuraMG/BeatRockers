@@ -1,34 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Class</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Classes</h1>
+  <ul title ="classes">
 
-  <tbody>
     <% @sections.each do |section| %>
-      <tr>
-        <td><%= section.name %></td>
-        <td>
-          <% section.students.each do |student| %>
-            <%= @students.find(student).name %>
-          <% end %>
-        </td>
-        <br>
-        <br>
-        <td><%= link_to 'Show', section %></td>
-        <td><%= link_to 'Edit', edit_section_path(section) %></td>
-        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li>
+        <%= link_to section  do%>
+          <%= section.name %>
+        <% end %>
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
 
-<br>
+  <%= link_to 'New Class', new_section_path %>
 
-<%= link_to 'New Section', new_section_path %>
+<div>

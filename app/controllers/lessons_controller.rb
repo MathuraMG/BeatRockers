@@ -12,6 +12,7 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    @tags = Tag.all
   end
 
   # GET /lessons/new

@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @section.name %>
+  <h2><%= @section.name %></h2>
+  <ul title="student">
+    <% @section.students.each do |student| %>
+    <li>
+      <%= @students.find(student).name %>
+    </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
