@@ -5,6 +5,10 @@
 <br>
 <p id="notice"><%= notice %></p>
 <br>
+
+<%= link_to 'Back', lessons_path %>
+<%= link_to 'Edit', edit_lesson_path(@lesson) %>
+
 <p>
   <strong>Name:</strong>
   <%= @lesson.name %>
@@ -14,6 +18,9 @@
   <strong>Notes:</strong>
   <%= @lesson.notes %>
 </p>
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>
+<% @lesson.tags.each do |tag| %>
+  <%= @tags.find(tag).name %>
+<% end %>
 </div>
-
-

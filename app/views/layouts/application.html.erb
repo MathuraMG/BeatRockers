@@ -9,6 +9,29 @@
   </head>
 
   <body>
+    <% if current_user %>
+      Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
     <%= yield %>
   </body>
+
+  <footer>
+    <% if current_user %>
+    <nav>
+      <ul title="view options">
+      <li>
+        <a href="/lessons"> Lesson List </a>
+      </li>
+      <li>
+        <a href="/students"> Student List </a>
+      </li>
+      <li>
+        <a href="/sections"> Classes List </a>
+      </li>
+    </nav>
+    <% end %>
+
+  </footer>
 </html>

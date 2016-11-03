@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+
+  <h1>Classes</h1>
+  <ul title ="classes">
+
+    <% @sections.each do |section| %>
+      <li>
+        <%= link_to section  do%>
+          <%= section.name %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'New Class', new_section_path %>
+
+<div>

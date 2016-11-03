@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  before_filter :authorize
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   # GET /lessons
@@ -11,6 +12,7 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    @tags = Tag.all
   end
 
   # GET /lessons/new

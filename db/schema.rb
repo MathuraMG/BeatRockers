@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019140017) do
+ActiveRecord::Schema.define(version: 20161102222505) do
+
+  create_table "audios", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  create_table "audios_students", id: false, force: :cascade do |t|
+    t.integer "audio_id",   null: false
+    t.integer "student_id", null: false
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.string   "name"
@@ -24,11 +39,21 @@ ActiveRecord::Schema.define(version: 20161019140017) do
     t.integer "tag_id",    null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections_students", id: false, force: :cascade do |t|
+    t.integer "section_id", null: false
+    t.integer "student_id", null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
     t.string   "gender"
-    t.integer  "studentID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,10 +71,10 @@ ActiveRecord::Schema.define(version: 20161019140017) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "role"
-    t.integer  "userID"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

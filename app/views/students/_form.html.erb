@@ -33,6 +33,13 @@
   </div>
   <div class="text-center">
   <%= f.submit :class => "btn btn-default" %>
+  <div class="field">
+    <%= f.label :studentID %>
+    <%= f.number_field :studentID %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
   </div>
   </form>
 <%end%>
