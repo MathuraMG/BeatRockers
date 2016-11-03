@@ -22,3 +22,10 @@ waveform test.wav Hai.png
 * add section detail to show in students
 * switch to postgres
 * How does audio addition work??
+
+Adding an admin
+
+To use the admin side of the webpage, you would have to add yourself as an admin
+Run rails c
+To add a user, (with email admin , password admin123 name adminname ) run the below User.create(:name => 'adminname', :password => 'admin123', :email => 'admin', :is_admin =>true)
+Once this goes through, go to localhost:3000/login and login with email and password
