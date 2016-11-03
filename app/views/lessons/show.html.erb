@@ -1,4 +1,10 @@
+<div class = "container text-center">
+<br>
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>
+<br>
 <p id="notice"><%= notice %></p>
+<br>
 
 <%= link_to 'Back', lessons_path %>
 <%= link_to 'Edit', edit_lesson_path(@lesson) %>
@@ -7,12 +13,14 @@
   <strong>Name:</strong>
   <%= @lesson.name %>
 </p>
-
+<br>
 <p>
   <strong>Notes:</strong>
   <%= @lesson.notes %>
 </p>
-
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>
 <% @lesson.tags.each do |tag| %>
   <%= @tags.find(tag).name %>
 <% end %>
+</div>

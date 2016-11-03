@@ -1,17 +1,41 @@
+<div class = "container text-center">
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Back', students_path %>
 <%= link_to 'Edit', edit_student_path(@student) %>
-
 <p>
   <strong>Name:</strong>
   <%= @student.name %>
 </p>
-
+<br>
 <p>
   <strong>Age:</strong>
   <%= @student.age %>
 </p>
+<br>
+<p>
+  <strong>Gender:</strong>
+  <%= @student.gender %>
+</p>
+<br>
+<p>
+  <strong>Studentid:</strong>
+  <%= @student.studentID %>
+</p>
+</div>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @student.gender %>
+</p>
+
+<p>
+  <strong>Studentid:</strong>
+  <%= @student.studentID %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
 
 <% @student.sections.each do |section| %>
   <%= @sections.find(section).name %>

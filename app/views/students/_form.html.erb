@@ -1,6 +1,6 @@
 <%= form_for(student) do |f| %>
   <% if student.errors.any? %>
-    <div id="error_explanation">
+  <div id="error_explanation">
       <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
@@ -11,22 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <form>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control"%>
   </div>
-
-  <div class="field">
+  
+  <div class="form-group">
     <%= f.label :age %>
-    <%= f.number_field :age %>
+    <%= f.number_field :age, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :gender %>
-    <%= f.text_field :gender %>
+    <%= f.text_field :gender, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :studentID %>
+    <%= f.number_field :studentID, :class => "form-control" %>
+  </div>
+  <div class="text-center">
+  <%= f.submit :class => "btn btn-default" %>
+  <div class="field">
+    <%= f.label :studentID %>
+    <%= f.number_field :studentID %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+  </form>
+<%end%>

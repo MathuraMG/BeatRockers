@@ -11,18 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <form>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :notes %>
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, :class => "form-control" %>
   </div>
 
-  <div>
-    <%= f.association :tags, input_html: { multiple: true }  %>
+  <div class="form-group">
+    <%= f.association :tags, input_html: { multiple: true }, :class => "form-control"  %>
   </div>
 
   <div class="actions">
