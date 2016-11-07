@@ -14,6 +14,8 @@ class StudentsController < ApplicationController
   def show
     @sections = Section.all
     @audios = Audio.all
+    @comments = current_user.comments & @student.comments
+    @comment = Comment.new
   end
 
   # GET /students/new
