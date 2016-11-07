@@ -17,15 +17,13 @@
   <strong>Gender:</strong>
   <%= @student.gender %>
 </p>
-</div>
+
 
 <p>
   <strong>Gender:</strong>
   <%= @student.gender %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
 
 <% @student.sections.each do |section| %>
   <%= @sections.find(section).name %>
@@ -34,3 +32,18 @@
 <% @student.audios.each do |audio| %>
   <%= @audios.find(audio).name %>
 <% end %>
+<br>
+<strong>Comments:</strong>
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <p><%= comment.comments_text %></p>
+  </li>
+<% end %>
+</ul>
+
+</div>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

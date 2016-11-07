@@ -14,7 +14,7 @@
 
     <% @lessons.each do |lesson| %>
 
-      <li class="lesson">
+      <li class="lesson <%= lesson.tags.map { |tag| "lesson-#{tag.name}" }.join(" ") %>">
         <%= link_to lesson  do%>
         <p><%= lesson.name %></p>
           <% lesson.tags.each do |tag| %>

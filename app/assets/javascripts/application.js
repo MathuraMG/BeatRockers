@@ -16,3 +16,23 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap
+
+window.onload = function() {
+  console.log('I am a sad potato');
+  $('.tag-list input[type=checkbox]').click(function() {
+    if($('.tag-list :checked').length > 0){
+      $('.lesson').hide();
+    }
+    else {
+      $('.lesson').show();
+    }
+
+    $('.tag-list :checked').each(function(){
+      // console.log($(this).val())
+      var className=  '.lesson-' + $(this).val();
+      $(className).show();
+    });
+
+  })
+
+}
