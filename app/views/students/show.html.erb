@@ -31,6 +31,9 @@
 
 <% @student.audios.each do |audio| %>
   <%= @audios.find(audio).name %>
+  <audio controls>
+    <source src="<%= @audios.find(audio).file.url %>" type="audio/mpeg">
+  </audio>
 <% end %>
 <br>
 <strong>Comments:</strong>
@@ -38,6 +41,7 @@
 <% @comments.each do |comment| %>
   <li>
     <p><%= comment.comments_text %></p>
+    <p><%= @users.find(comment.user_ids[0]).name %></p>
   </li>
 <% end %>
 </ul>

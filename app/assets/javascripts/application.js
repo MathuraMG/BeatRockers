@@ -18,8 +18,8 @@
 //= require bootstrap
 
 window.onload = function() {
-  console.log('I am a sad potato');
   $('.tag-list input[type=checkbox]').click(function() {
+    console.log('hi');
     if($('.tag-list :checked').length > 0){
       $('.lesson').hide();
     }
