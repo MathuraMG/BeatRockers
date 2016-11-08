@@ -1,13 +1,26 @@
 <!-- app/views/users/new.html.erb -->
-
-<h1>Signup!</h1>
-
+<div class="container">
+<div class="Absolute-Center is-Responsive">
+<div class="col-md-5 col-md-offset-5">
+<h6> Sign Up </h6>
 <%= form_for :user, url: '/users' do |f| %>
-
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+<br/>
+  Name: <br/>
+  <%= f.text_field :name, placeholder: "Enter your name", :class => "beatbox_textfield_properties" %>
+  <br/><br/>
+  Email: <br/>
+  <%= f.text_field :email, placeholder: "Enter your email", :class => "beatbox_textfield_properties" %>
+  <br/><br/>
+  Password: <br/>
+  <%= f.password_field :password, placeholder: "Enter your password", :class => "beatbox_textfield_properties" %>
+  <br/><br/>
+  Password Confirmation: <br/> 
+  <%= f.password_field :password_confirmation, placeholder: "Re enter your password", :class => "beatbox_textfield_properties" %>
+  <br/><br/>
+  <%= f.submit "Submit", :class => "beatbox_button" %>
 
 <% end %>
+</div>
+</div>
+</div>
+<
