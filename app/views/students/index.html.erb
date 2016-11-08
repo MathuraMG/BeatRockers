@@ -1,25 +1,22 @@
 
 <p id="notice"><%= notice %></p>
-
-<div class="container text-center">
+<div class="container">
+<div class="col-md-5 col-md-offset-5">
 <br>
 <p id="notice"><%= notice %></p>
 <h2>Students</h2>
-
-    <ul title ="students">
-
-
       <% @students.each do |student| %>
-
-        <li>
+        <ul title ="students">
           <%= link_to student  do%>
-            <img src="https://placekitten.com/200/200" alt="Student profile picture" height="42" width="42">
-            <p><%=student.name%> </p>
-            <p><%= student.age %></p>
+            <li><img src="http://bjstlh.com/data/wallpapers/59/WDF_1048440.jpg" class="img-circle" alt="Student profile picture" height="42" width="42"></li>
+            <li> &nbsp <%=student.name%> <br/>
+                 &nbsp <%= student.age %>
+            </li>
           <% end %>
-        </li>
+          <br/>
+          </ul>
       <% end %>
-    </ul>
 
 <button type="button" class="btn btn-default"><%= link_to 'New Student', new_student_path %></button>
+</div>
 </div>
