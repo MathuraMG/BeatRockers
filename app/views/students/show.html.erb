@@ -1,67 +1,59 @@
-
+<div class="container">
 <p id="notice"><%= notice %></p>
-
 <%= link_to 'Back', students_path %>
 <%= link_to 'Edit', edit_student_path(@student) %>
 <p>
-  <strong>Name:</strong>
+  <strong class="beatbox_label_field">Name:</strong>
   <%= @student.name %>
 </p>
 <br>
 <p>
-  <strong>Age:</strong>
+  <strong class="beatbox_label_field">Age:</strong>
   <%= @student.age %>
 </p>
 <br>
 <p>
-  <strong>Gender:</strong>
+  <strong class="beatbox_label_field">Gender:</strong>
   <%= @student.gender %>
-</p>
-
-
+</p>  
+<br/>
 <p>
-  <strong>Gender:</strong>
-  <%= @student.gender %>
-</p>
-
-
-<% @student.sections.each do |section| %>
+  <strong class="beatbox_label_field">Classes Enrolled In:</strong>
+  <% @student.sections.each do |section| %>
   <%= @sections.find(section).name %>
 <% end %>
+</p>  
 
+<br/>
+<strong class="beatbox_label_field">Recordings:</strong>
+<br/>
 <% @student.audios.each do |audio| %>
-  <%= @audios.find(audio).name %>
   <audio controls>
     <source src="<%= @audios.find(audio).file.url %>" type="audio/mpeg">
   </audio>
 <% end %>
-<br>
-<strong>Comments:</strong>
+<br/>
+<strong class="beatbox_label_field">Comments:</strong>
 <ul>
 <% @comments.each do |comment| %>
   <li>
-    <p><%= comment.comments_text %></p>
-    <p><%= @users.find(comment.user_ids[0]).name %></p>
+    <h5><%= comment.comments_text %> <i><%= @users.find(comment.user_ids[0]).name %></i></h5>
   </li>
 <% end %>
 </ul>
 
 <%= simple_form_for(@comment) do |f| %>
   <%= f.error_notification %>
-
+  <br/>
   <div class="form-inputs">
     <%= f.input :comments_text %>
   </div>
 
   <%=f.hidden_field :student_id, :value => @student.id %>
 
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <br/>
+  <div class="text-center">
+    <%= f.button :submit, :class => "beatbox_button" %>
   </div>
 <% end %>
-
-
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+</div>

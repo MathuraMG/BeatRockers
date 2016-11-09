@@ -11,22 +11,25 @@
     </div>
   <% end %>
 
+  <div class="container">
   <form>
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control" %>
+    <%= f.label :name, :class => "beatbox_label_field" %>
+    <%= f.text_field :name, placeholder: "Enter the Lesson name", :class => "beatbox_textfield_properties" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :notes %>
-    <%= f.text_area :notes, :class => "form-control" %>
+    <%= f.label :notes, :class => "beatbox_label_field" %>
+    <%= f.text_area :notes, placeholder: "Notes", :class => "beatbox_textfield_properties" %>
   </div>
 
   <div class="form-group">
-    <%= f.association :tags, input_html: { multiple: true }, :class => "form-control"  %>
+    <%= f.association :tags, input_html: { multiple: true }, :class => "beatbox_textfield_properties"  %>
   </div>
 
-  <div class="actions">
-    <input class=" btn btn-default" type="submit" name="commit" value="Create Lesson" data-disable-with="Create Lesson">
+  <div class="actions text-center">
+    <input class="beatbox_button" type="submit" name="commit" value="Create Lesson" data-disable-with="Create Lesson">
+  </div>
+  </form>
   </div>
 <% end %>
