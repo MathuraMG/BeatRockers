@@ -1,30 +1,29 @@
-<div class="container text-center">
-<br>
+
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container text-center">
 
+<h6 class="text-center">Lessons</h6>
   <ul title = "tags available" class="tag-list">
     <% @tags.each do |tag| %>
-      <input type="checkbox" name="chk_group" value="<%= tag.name %>"/><%= tag.name %>
+      <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>&nbsp<%= tag.name %>&nbsp
     <% end %>
   </ul>
-  <h1>Lessons</h1>
-  <ul title ="lessons">
-
     <% @lessons.each do |lesson| %>
-
+    <ul title ="lessons" class="classes_list">
       <li class="lesson <%= lesson.tags.map { |tag| "lesson-#{tag.name}" }.join(" ") %>">
         <%= link_to lesson  do%>
-        <p><%= lesson.name %></p>
-          <% lesson.tags.each do |tag| %>
+        <p><%= lesson.name %></p></li>
+          <li><% lesson.tags.each do |tag| %>
             <%= @tags.find(tag).name %>
           <% end %>
         <% end %>
       </li>
-
+      <br/>
+      </ul>
     <% end %>
-  </ul>
+<br/>
+<br/>
 
-<button type="button" class="btn btn-default"><%= link_to 'New Lesson', new_lesson_path %></button>
+<button type="button" class="classes_button"><%= link_to 'New Lesson', new_lesson_path %></button>
 </div>

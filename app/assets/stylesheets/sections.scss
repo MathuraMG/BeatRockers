@@ -1,3 +1,40 @@
 // Place all the styles related to the Sections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.classes_list {
+	border-bottom-color: #E7E5E5;
+	border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+li {
+    float: left;
+    font-size: 12px;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.classes_button {
+	color: #8A8A8A;
+	background-color: #EFEFEF;
+	border: none;
+	width: 170px;
+	padding: 6px 10px;
+}
+
+.beatbox_textfield_properties {
+	border: none;
+	border-bottom-color: #4BE8C3;
+	border-bottom-style: solid;
+    border-bottom-width: 1px;
+	font-size: 12px;
+	width: 100%;
+}

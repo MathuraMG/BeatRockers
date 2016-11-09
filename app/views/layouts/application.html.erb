@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DataMgmt</title>
+    <title>Beat "Box"</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,21 +17,20 @@
     <%= yield %>
   </body>
 
-  <footer>
+  <footer class="beatbox_footer_ul">
     <% if current_user %>
     <nav>
       <ul title="view options">
-      <li>
-        <a href="/lessons"> Lesson List </a>
+      <li class="beatbox_footer_li">
+        <a href="/lessons"><img src="/assets/lesson.png" alt="Lessons" height="21" width="21" width="33.33%"></a>
       </li>
-      <li>
-        <a href="/students"> Student List </a>
+      <li class="beatbox_footer_li">
+        <a href="/students"><img src="/assets/student.png" alt="Students" height="21" width="21"></a>
       </li>
-      <li>
-        <a href="/sections"> Classes List </a>
+      <li class="beatbox_footer_li">
+        <a href="/sections"><img src="/assets/class.png" alt="Section" height="21" width="21"></a>
       </li>
     </nav>
     <% end %>
-
   </footer>
 </html>

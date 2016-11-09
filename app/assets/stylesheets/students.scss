@@ -1,3 +1,38 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.students_list {
+	border-bottom-color: #E7E5E5;
+	border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+li {
+    float: left;
+    font-size: 12px;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.student_button {
+	color: #8A8A8A;
+	background-color: #FFFFFF;
+	border: dashed;
+	font-size: 50px;
+	border-color: #D2D0D0;
+	border-width: 1px;
+	width: 100%;
+	padding: 2px 2px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
