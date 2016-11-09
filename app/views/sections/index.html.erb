@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-
-  <h1>Classes</h1>
-  <ul title ="classes">
-
+  
+  <div class="container">
+  <h6 class="text-center">Classes</h6>
     <% @sections.each do |section| %>
+    <ul title ="classes" class="classes_list">
       <li>
         <%= link_to section  do%>
           <%= section.name %>
         <% end %>
       </li>
+      </ul>
     <% end %>
-  </ul>
+    </div>
+  <br/>
+  <div class="text-center"><%= link_to 'New Class', new_section_path, :class => "classes_button" %></div>
 
-  <%= link_to 'New Class', new_section_path %>
-
-<div>
