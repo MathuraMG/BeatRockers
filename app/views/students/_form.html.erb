@@ -10,28 +10,25 @@
       </ul>
     </div>
   <% end %>
-
   <form>
+  <div class="container">
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control"%>
+    <%= f.label :name, :class => "beatbox_label_field" %>
+    <%= f.text_field :name,placeholder: "Enter your email", :class => "beatbox_textfield_properties"%>
   </div>
 
   <div class="form-group">
-    <%= f.label :age %>
-    <%= f.number_field :age, :class => "form-control" %>
+    <%= f.label :age , :class => "beatbox_label_field"%>
+    <%= f.number_field :age,placeholder: "Enter your email", :class => "beatbox_textfield_properties" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :gender %>
-    <%= f.text_field :gender, :class => "form-control" %>
+    <%= f.label :gender, :class => "beatbox_label_field" %>
+    <%= f.text_field :gender,placeholder: "Enter your email", :class => "beatbox_textfield_properties" %>
   </div>
-
+  
+  </div>
   <div class="text-center">
-  <%= f.submit :class => "btn btn-default" %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit :class => "beatbox_button" %>
   </form>
 <%end%>
