@@ -8,12 +8,11 @@
     <br/>
   	<ul title="student"  class="classes_list">
     <li>
-      <%= @students.find(student).name %>
+      <%=link_to @students.find(student).name,  @students.find(student) %>
     </li>
     <br/><br/>
   	</ul>
     <% end %>
-  
+
 </p>
 </div>
-

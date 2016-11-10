@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-  
+<div class="container text-center">
   <div class="container">
   <h6 class="text-center">Classes</h6>
     <% @sections.each do |section| %>
@@ -14,5 +14,5 @@
     <% end %>
     </div>
   <br/>
-  <div class="text-center"><%= link_to 'New Class', new_section_path, :class => "classes_button" %></div>
-
+  <button type="button" class="lesson_button"><%= link_to '+', new_section_path %></button>
+</div>
