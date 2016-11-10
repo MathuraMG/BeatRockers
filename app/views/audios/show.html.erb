@@ -4,7 +4,7 @@
   <strong>Name:</strong>
   <%= @audio.name %>
   <audio controls>
-    <source src="<%= @audio.file.url %>" type="audio/mpeg">
+    <source src="<%= @audio.file.url %>">
   </audio>
 
   <% @audio.students.each do |student| %>
