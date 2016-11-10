@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  
+
     <title>Beat "Box"</title>
     <%= csrf_meta_tags %>
 
@@ -23,13 +23,14 @@
     <nav>
       <ul title="view options">
       <li class="beatbox_footer_li">
-        <a href="/lessons"><img src="/assets/lesson.png" alt="Lessons" height="21" width="21" width="33.33%"></a>
+
+        <a href="/lessons"><img src="<%= asset_path('lesson.png') %>" alt="Lessons" height="21" width="21" width="33.33%"></a>
       </li>
       <li class="beatbox_footer_li">
-        <a href="/students"><img src="/assets/student.png" alt="Students" height="21" width="21"></a>
+        <a href="/students"><img src="<%= asset_path('student.png') %>" alt="Students" height="21" width="21"></a>
       </li>
       <li class="beatbox_footer_li">
-        <a href="/sections"><img src="/assets/class.png" alt="Section" height="21" width="21"></a>
+        <a href="/sections"><img src="<%= asset_path('class.png') %>" alt="Section" height="21" width="21"></a>
       </li>
     </nav>
     <% end %>
