@@ -12,4 +12,32 @@ body {
 	border: none;
     border-radius: 50%;
     font-size: 20px;
-  }
+ }
+
+lesson_li {
+	float: none;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+div.scrollmenu {
+    background-color: #FFF;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
