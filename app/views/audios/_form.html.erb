@@ -9,6 +9,8 @@
       <%= f.file_field :audio %>
   </div>
 
+  <%= f.association :students, input_html: { multiple: true }  %>
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

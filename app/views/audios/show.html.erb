@@ -7,6 +7,9 @@
   <audio controls>
     <source src="<%= @audio.audio.url %>" type="audio/mpeg">
   </audio>
+  <% @audio.students.each do |student| %>
+    <%= @students.find(student).name %>
+  <% end %>
 
 </p>
 

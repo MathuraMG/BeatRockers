@@ -29,7 +29,7 @@
 <br/>
 <% @student.audios.each do |audio| %>
   <audio controls>
-    <source src="<%= @audios.find(audio).file.url %>" type="audio/mpeg">
+    <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>
 <% end %>
 <br/>
