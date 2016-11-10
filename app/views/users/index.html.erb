@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <img src="<%= asset_path('kayla.png') %>" class="img-circle" height="100" width="100">
+  <strong>Name:</strong>
+  <%= @user.name %>
+
+  <strong>Email:</strong>
+  <%= @user.email %>
+
+  <%= link_to "Logout", '/logout' %>
+
+</p>

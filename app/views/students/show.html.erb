@@ -1,5 +1,6 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
+<<<<<<< HEAD
 
 <%= link_to 'Back', students_path%>
 <%= link_to 'Edit', edit_student_path(@student)%>
@@ -10,20 +11,58 @@
    &nbsp <%= @student.gender %>
   <br/><br/>
 </div>
+||||||| merged common ancestors
+<%= link_to 'Back', students_path %>
+<%= link_to 'Edit', edit_student_path(@student) %>
+<p>
+  <strong class="beatbox_label_field">Name:</strong>
+  <%= @student.name %>
+</p>
+<br>
+<p>
+  <strong class="beatbox_label_field">Age:</strong>
+  <%= @student.age %>
+</p>
+<br>
+<p>
+  <strong class="beatbox_label_field">Gender:</strong>
+  <%= @student.gender %>
+</p>  
+<br/>
+=======
+<%= link_to 'Back', students_path %>
+<%= link_to 'Edit', edit_student_path(@student) %>
+<p>
+  <strong class="beatbox_label_field">Name:</strong>
+  <%= @student.name %>
+</p>
+<br>
+<p>
+  <strong class="beatbox_label_field">Age:</strong>
+  <%= @student.age %>
+</p>
+<br>
+<p>
+  <strong class="beatbox_label_field">Gender:</strong>
+  <%= @student.gender %>
+</p>
+<br/>
+>>>>>>> upstream/master
 <p>
   <strong class="beatbox_label_field">Classes Enrolled In:</strong><br/>
   <br/>
   <% @student.sections.each do |section| %>
   <%= @sections.find(section).name %>
 <% end %>
-</p>  
+</p>
 
 <br/>
 <strong class="beatbox_label_field">Recordings:</strong><br/>
 <br/>
 <% @student.audios.each do |audio| %>
+  <%= @audios.find(audio).name %>
   <audio controls>
-    <source src="<%= @audios.find(audio).file.url %>" type="audio/mpeg">
+    <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>
 <% end %>
 <br/>
