@@ -1,31 +1,24 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
-<%= link_to 'Back', students_path %>
-<%= link_to 'Edit', edit_student_path(@student) %>
+<%= link_to 'Back', students_path%>
+<%= link_to 'Edit', edit_student_path(@student)%>
+<div class="text-center">
+<img src="http://bjstlh.com/data/wallpapers/59/WDF_1048440.jpg" class="img-circle" alt="Student profile picture" height="150" width="150">
+ <br/><br/><%= @student.name%>
+   &nbsp <%= @student.age %>
+   &nbsp <%= @student.gender %>
+  <br/><br/>
+</div>
 <p>
-  <strong class="beatbox_label_field">Name:</strong>
-  <%= @student.name %>
-</p>
-<br>
-<p>
-  <strong class="beatbox_label_field">Age:</strong>
-  <%= @student.age %>
-</p>
-<br>
-<p>
-  <strong class="beatbox_label_field">Gender:</strong>
-  <%= @student.gender %>
-</p>
-<br/>
-<p>
-  <strong class="beatbox_label_field">Classes Enrolled In:</strong>
+  <strong class="beatbox_label_field">Classes Enrolled In:</strong><br/>
+  <br/>
   <% @student.sections.each do |section| %>
   <%= @sections.find(section).name %>
 <% end %>
 </p>
 
 <br/>
-<strong class="beatbox_label_field">Recordings:</strong>
+<strong class="beatbox_label_field">Recordings:</strong><br/>
 <br/>
 <% @student.audios.each do |audio| %>
   <%= @audios.find(audio).name %>
@@ -35,13 +28,15 @@
 <% end %>
 <br/>
 <strong class="beatbox_label_field">Comments:</strong>
-<ul>
+
 <% @comments.each do |comment| %>
+<ul>
   <li>
     <h5><%= comment.comments_text %> <i><%= @users.find(comment.user_ids[0]).name %></i></h5>
   </li>
-<% end %>
 </ul>
+<% end %>
+
 
 <%= simple_form_for(@comment) do |f| %>
   <%= f.error_notification %>
