@@ -17,7 +17,7 @@
 //= require jquery
 //= require bootstrap
 
-window.onload = function() {
+var ready = function() {
   $('.tag-list input[type=checkbox]').click(function() {
     console.log('hi');
     if($('.tag-list :checked').length > 0){
@@ -36,3 +36,6 @@ window.onload = function() {
   })
 
 }
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
