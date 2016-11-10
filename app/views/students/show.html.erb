@@ -15,21 +15,21 @@
 <p>
   <strong class="beatbox_label_field">Gender:</strong>
   <%= @student.gender %>
-</p>  
+</p>
 <br/>
 <p>
   <strong class="beatbox_label_field">Classes Enrolled In:</strong>
   <% @student.sections.each do |section| %>
   <%= @sections.find(section).name %>
 <% end %>
-</p>  
+</p>
 
 <br/>
 <strong class="beatbox_label_field">Recordings:</strong>
 <br/>
 <% @student.audios.each do |audio| %>
   <audio controls>
-    <source src="<%= @audios.find(audio).file.url %>" type="audio/mpeg">
+    <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>
 <% end %>
 <br/>

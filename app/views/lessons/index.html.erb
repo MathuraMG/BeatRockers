@@ -13,8 +13,8 @@
 </div>
 </div>
 </ul>
-  
-  
+
+
   <% @lessons.each do |lesson| %>
   <ul title ="lessons" class="classes_list lesson <%= lesson.tags.map { |tag| "lesson-#{tag.name}" }.join(" ") %>">
       <li class="lesson_li">
@@ -23,12 +23,10 @@
             <%= @tags.find(tag).name %>
           <% end %>
           </li>
-  </ul>  
+  </ul>
   <% end %>
-    
+
 <br/>
 <br/>
 <button type="button" class="lesson_button"><%= link_to '+', new_lesson_path %></button>
 </div>
-
-
