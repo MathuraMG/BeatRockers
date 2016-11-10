@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <img src="<%= asset_path('kayla.png') %>" class="img-circle" height="100" width="100">
-  <strong>Name:</strong>
+  <div class="text-center">
+  <br/>
+<img src="<%= asset_path('kayla.png') %>" class="img-circle" alt="Student profile picture" height="150" width="150">
+ <br/><br/>
+	<strong class="beatbox_label_field">Name:</strong>
   <%= @user.name %>
-
-  <strong>Email:</strong>
+  <br/><br/>
+  <strong class="beatbox_label_field">Email:</strong>
   <%= @user.email %>
+<br/><br/>
 
-  <%= link_to "Logout", '/logout' %>
-
-</p>
+  <%= link_to "Logout", '/logout', :class => "beatbox_button" %>
+</div>
