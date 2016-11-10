@@ -28,6 +28,7 @@
 <strong class="beatbox_label_field">Recordings:</strong>
 <br/>
 <% @student.audios.each do |audio| %>
+  <%= @audios.find(audio).name %>
   <audio controls>
     <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>

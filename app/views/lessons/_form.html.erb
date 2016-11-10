@@ -19,6 +19,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :nickname, :class => "beatbox_label_field" %>
+    <%= f.text_field :nickname, placeholder: "Enter the Lesson nickname", :class => "beatbox_textfield_properties" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :notes, :class => "beatbox_label_field" %>
     <%= f.text_area :notes, placeholder: "Notes", :class => "beatbox_textfield_properties" %>
   </div>
