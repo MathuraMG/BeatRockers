@@ -1,9 +1,26 @@
-<div class="container">
+<div class="beatbox_header_ul"> 
+    <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to students_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;"><%= @student.name %></h4>
+      </li>
+      <li style="width:15%">
+        <br/>
+          <%= link_to 'Edit', edit_student_path(@student) %>
+      </li>
+      </ul>
+    </nav>
+</div>
+<div class="container topPadding">
 <p id="notice"><%= notice %></p>
-<%= link_to 'Back', students_path%>
-<%= link_to 'Edit', edit_student_path(@student)%>
 <div class="text-center">
-<img src="http://bjstlh.com/data/wallpapers/59/WDF_1048440.jpg" class="img-circle" alt="Student profile picture" height="150" width="150">
+<img src="http://www.bordeaux-tourism.co.uk/var/ezwebin_site/storage/images/media/images/regards-bordelais/jean-poutge/profil-jean/12599-2-fre-FR/Profil-Jean_format_360x360.jpg" class="img-circle" alt="Student profile picture" height="150" width="150">
  <br/><br/><%= @student.name%>
    &nbsp <%= @student.age %>
    &nbsp <%= @student.gender %>

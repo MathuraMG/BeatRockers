@@ -1,5 +1,23 @@
 
 <%= link_to 'Back', lessons_path %>
-<h6 class="text-center">New Lesson</h6>
+ <div class="beatbox_header_ul"> 
+      <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to lessons_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;">New Lesson</h4>
+      </li>
+      <li style="width:15%">
+        <br/>
+          <%= link_to 'Edit', edit_lesson_path(@lesson) %>
+      </li>
+      </ul>
+      </nav>
+    </div>
 <%= render 'form', lesson: @lesson %>
 

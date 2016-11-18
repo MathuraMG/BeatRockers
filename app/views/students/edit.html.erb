@@ -1,8 +1,21 @@
-<div class="container">
+<div class="beatbox_header_ul"> 
+    <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to students_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;">Editing Student Details</h4>
+      </li>
+      </ul>
+    </nav>
+</div>
+<div class="container topPadding">
 <br/>
-<%= link_to 'Back', students_path %>
 <div class="text-center">
-<h1>Editing Student</h1>
 </div>
 
 <%= render 'form', student: @student %>
