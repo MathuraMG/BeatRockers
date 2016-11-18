@@ -5,14 +5,15 @@
 
 <h6 class="text-center">Lessons</h6>
   <ul title = "tags available" class="tag-list">
-<div class="parent">
-<div class="scrollmenu">
-     <% @tags.each do |tag| %>
-      <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>&nbsp<%= tag.name %>&nbsp
-    <% end %>
-</div>
-</div>
-</ul>
+    <div class="parent">
+      <div class="scrollmenu">
+           <% @tags.each do |tag| %>
+            <input type="checkbox" name="chk_group" value="<%= tag.name %>"/><%= tag.name %>
+          <% end %>
+      </div>
+    </div>
+  </ul>
+  <%= link_to 'Add Tag', new_tag_path %>
 
 
   <% @lessons.each do |lesson| %>
