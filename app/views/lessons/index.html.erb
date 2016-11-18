@@ -8,7 +8,9 @@
     <div class="parent">
       <div class="scrollmenu">
            <% @tags.each do |tag| %>
-            <input type="checkbox" name="chk_group" value="<%= tag.name %>"/><%= tag.name %>
+            <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>
+            <div class="tag-color" style="background-color:#<%= tag.color %> ;width:20px;height:20px"></div>
+            <%= tag.name %>
           <% end %>
       </div>
     </div>
