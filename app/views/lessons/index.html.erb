@@ -20,17 +20,23 @@
 </div>
 </div>
 </ul>
-
-
   <% @lessons.each do |lesson| %>
   <ul title ="lessons" class="classes_list lesson <%= lesson.tags.map { |tag| "lesson-#{tag.name}" }.join(" ") %>">
-      <li class="lesson_li">
-        <%= link_to lesson.nickname , lesson  %></li><br/>
-        <%=  lesson.name %>
-          <li class="lesson_li"><% lesson.tags.each do |tag| %>
+  <br/>
+      <li class="lesson_li" style="width:30%;">
+          <br/>
+          <% lesson.tags.each do |tag| %>
             <%= @tags.find(tag).name %>
           <% end %>
-          </li>
+      </li>
+      <li class="lesson_li" style="width:30%;">
+        <%= link_to lesson.nickname , lesson  %>
+      </li>
+      <li class="lesson_li">
+      <br/>
+        <%=  lesson.name %>
+      </li>
+        
   </ul>
   <% end %>
 
