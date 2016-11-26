@@ -38,6 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 0.9'
 gem 'carrierwave-dropbox'
 
+# Use minicolours for colour selection for tags and students
+gem 'jquery-minicolors-rails'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -16,6 +16,8 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
 
 var ready = function() {
   $('.tag-list input[type=checkbox]').click(function() {

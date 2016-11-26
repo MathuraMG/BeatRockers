@@ -8,6 +8,7 @@ Project for Beatrocker class
 * [Bcrypt authentication](https://gist.github.com/thebucknerlife/10090014)
 * [Waveform](https://github.com/benalavi/waveform) - needed to run the following command prior to bundle install `brew install libsndfile
 `
+* [Minicolors](https://github.com/kostia/jquery-minicolors-rails)
 * [Paperclip](https://github.com/thoughtbot/paperclipas)
 
 ### Notes
