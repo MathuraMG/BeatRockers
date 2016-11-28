@@ -10,6 +10,7 @@ Project for Beatrocker class
 `
 * [Minicolors](https://github.com/kostia/jquery-minicolors-rails)
 * [Paperclip](https://github.com/thoughtbot/paperclipas)
+* [RecorderJS](https://github.com/JulienDefrance/recorderjs-rails wa)
 
 ### Notes
 #### To convert
