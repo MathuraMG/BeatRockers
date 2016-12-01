@@ -37,7 +37,7 @@
   <% @comments.each do |comment| %>
   <ul>
     <li>
-      <h5><%= comment.comments_text %> <i><%= @users.find(comment.user_ids[0]).name %></i></h5>
+      <h5><%= comment.comments_text %> <i><%= @users.find(comment.user_ids[0]).name %><%= comment.created_at %> </i></h5>
     </li>
   </ul>
   <% end %>
