@@ -1,5 +1,5 @@
 class AudiosController < ApplicationController
-  before_action :set_audio, only: [:show, :edit, :update, :destroy]
+  before_action :set_audio, only: [:show, :edit, :update, :destroy, :save_file]
 
   # GET /audios
   # GET /audios.json
@@ -28,6 +28,7 @@ class AudiosController < ApplicationController
   # POST /audios
   # POST /audios.json
   def create
+    # binding.pry
     @audio = Audio.new(audio_params)
 
     respond_to do |format|
@@ -65,6 +66,19 @@ class AudiosController < ApplicationController
     end
   end
 
+  def save_file
+      @audio = Audio.new(params)
+      # audio = params[:audio]
+      save_path = Rails.root.join("public/#{audio.original_filename}")
+
+        # Open and write the file to file system.
+        File.open(save_path, 'wb') do |f|
+          f.write params[:audio].read
+        end
+
+      render :text=> 'hi'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_audio
@@ -73,6 +87,10 @@ class AudiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audio_params
-      params.require(:audio).permit(:name, :audio, :student_ids => [], :user_ids => [])
+      params.require(:audio).permit(:name, :audio, :student_ids => [], :user_ids => []).tap do |base_params|
+        if params[:recorded_audio]
+          base_params.merge(audio: params[:recorded_audio])
+        end
+      end
     end
 end
