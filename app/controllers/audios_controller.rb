@@ -29,6 +29,7 @@ class AudiosController < ApplicationController
   # POST /audios.json
   def create
     # binding.pry
+    puts audio_params
     @audio = Audio.new(audio_params)
 
     respond_to do |format|

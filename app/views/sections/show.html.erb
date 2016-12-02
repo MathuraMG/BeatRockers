@@ -1,9 +1,25 @@
-<%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', sections_path %>
-<div class="container">
+<div class="beatbox_header_ul"> 
+    <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to sections_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;"><%= @section.name %></h4>
+      </li>
+      <li style="width:15%">
+        <br/>
+          <%= link_to 'Edit', edit_section_path(@section) %>
+      </li>
+      </ul>
+    </nav>
+</div>
+<div class="container topPadding">
 <p id="notice"><%= notice %></p>
 <p>
-  <h6 class="text-center"><%= @section.name %></h6>
     <% @section.students.each do |student| %>
     <br/>
   	<ul title="student"  class="classes_list">
@@ -13,6 +29,5 @@
     <br/><br/>
   	</ul>
     <% end %>
-
 </p>
 </div>
