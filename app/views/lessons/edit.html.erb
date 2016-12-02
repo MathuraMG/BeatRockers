@@ -1,11 +1,24 @@
-
-<div class="container text-center">
+ <div class="beatbox_header_ul"> 
+      <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to lessons_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;">Lessons</h4>
+      </li>
+      <li style="width:15%">
+        <br/>
+          <%= link_to 'Edit', edit_lesson_path(@lesson) %>
+      </li>
+      </ul>
+      </nav>
+    </div>
+<div class="container text-center topPadding">
 <br/>
-<h1>Editing Lesson</h1>
-
 <%= render 'form', lesson: @lesson %>
-<%= link_to 'Destroy', @lesson, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Show', @lesson %> |
-<%= link_to 'Back', lessons_path %>
-
+<%= link_to 'Delete', @lesson, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

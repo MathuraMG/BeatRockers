@@ -1,6 +1,24 @@
-<div class = "container text-center">
 <p id="notice"><%= notice %></p>
-
+ <div class="beatbox_header_ul"> 
+      <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to lessons_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;">Lessons</h4>
+      </li>
+      <li style="width:15%">
+        <br/>
+          <%= link_to 'Edit', edit_lesson_path(@lesson) %>
+      </li>
+      </ul>
+      </nav>
+    </div>
+<div class = "container text-center topPadding">
 <p>
   <strong>Name:</strong>
   <%= @lesson.name %>
@@ -15,8 +33,6 @@
   <strong>Notes:</strong>
   <%= @lesson.notes %>
 </p>
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
 <% @lesson.tags.each do |tag| %>
   <%= @tags.find(tag).name %>
 <% end %>

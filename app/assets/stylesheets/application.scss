@@ -34,11 +34,31 @@ ul {
 	padding: 6px 10px;
 }
 
+.topPadding {
+	padding-top: 15%;
+}
+
 .beatbox_footer_ul {
 	height: 8%;
 	background-color: black;
 	position: fixed;
 	bottom: 0px;
+	width: 100%;
+}
+
+.beatbox_header_ul {
+	height: 8%;
+	background-color: white;
+	border: 10px;
+	border-bottom-color: #E7E5E5;
+	border-bottom-style: solid;
+    border-bottom-width: 1px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+
+.beatbox_header_li {
 	width: 100%;
 }
 

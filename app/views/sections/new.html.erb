@@ -1,3 +1,16 @@
-<h6 class="text-center">New Class</h1>
-<%= link_to 'Back', sections_path %>
+<div class="beatbox_header_ul"> 
+    <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to sections_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;">New Class</h4>
+      </li>
+      </ul>
+    </nav>
+</div>
 <%= render 'form', section: @section %>
