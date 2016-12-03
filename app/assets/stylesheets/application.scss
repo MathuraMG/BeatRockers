@@ -34,6 +34,13 @@ ul {
 	padding: 6px 10px;
 }
 
+.beatbox_login {
+		position:relative;
+    height:100%;
+    width:100%;
+		padding-top: 120px;
+}
+
 .topPadding {
 	padding-top: 15%;
 }
@@ -52,7 +59,7 @@ ul {
 	border: 10px;
 	border-bottom-color: #E7E5E5;
 	border-bottom-style: solid;
-    border-bottom-width: 1px;
+  border-bottom-width: 1px;
 	position: absolute;
 	top: 0px;
 	width: 100%;
@@ -79,7 +86,8 @@ ul {
 	border: none;
 	border-bottom-color: #4BE8C3;
 	border-bottom-style: solid;
-    border-bottom-width: 1px;
+  border-bottom-width: 1px;
 	font-size: 12px;
-	width: 100%;
+	width: 80%;
+	height: 30px;
 }
