@@ -7,7 +7,7 @@
     <%= f.text_field :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
   </div>
   <div>
-    <%= f.association :students, input_html: { multiple: true },placeholder: "Enter your email", :class => "beatbox_textfield_properties" %>
+    <%= f.association :students, input_html: { multiple: true },placeholder: "Enter your email", :class => "beatbox_textfield_properties", label: false %>
   </div>
 
   <div class="form-actions text-center">

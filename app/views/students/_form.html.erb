@@ -1,4 +1,4 @@
-<%= form_for(student) do |f| %>
+<%= simple_form_for(student) do |f| %>
   <% if student.errors.any? %>
   <div id="error_explanation">
       <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -14,17 +14,27 @@
   <div class="container topPadding">
   <div class="form-group">
     <%= f.label :name, :class => "beatbox_label_field" %>
-    <%= f.text_field :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
+    <%= f.input :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
   </div>
 
   <div class="form-group">
     <%= f.label :age , :class => "beatbox_label_field"%>
-    <%= f.number_field :age,placeholder: "Enter age", :class => "beatbox_textfield_properties" %>
+    <%= f.input :age,placeholder: "Enter age", :class => "beatbox_textfield_properties" %>
   </div>
 
   <div class="form-group">
     <%= f.label :gender, :class => "beatbox_label_field" %>
-    <%= f.text_field :gender,placeholder: "Enter gender", :class => "beatbox_textfield_properties" %>
+    <%= f.input :gender,placeholder: "Enter gender", :class => "beatbox_textfield_properties" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :profile, :class => "beatbox_label_field" %>
+    <%= f.input :profile,placeholder: "Enter profile", :class => "beatbox_textfield_properties" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.input :color, as: :minicolors %>
   </div>
 
   </div>

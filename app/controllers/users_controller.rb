@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
+    @audios = Audio.all
   end
 
   def create
@@ -22,6 +23,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :comment_ids => [])
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :comment_ids => [], :audio_ids => [])
   end
 end

@@ -12,6 +12,7 @@
     </div>
 <div class="container text-center topPadding">
   <ul title = "tags available" class="tag-list">
+<<<<<<< HEAD
 <div class="parent">
 <div class="scrollmenu">
      <% @tags.each do |tag| %>
@@ -20,6 +21,32 @@
 </div>
 </div>
 </ul>
+||||||| merged common ancestors
+<div class="parent">
+<div class="scrollmenu">
+     <% @tags.each do |tag| %>
+      <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>&nbsp<%= tag.name %>&nbsp
+    <% end %>
+</div>
+</div>
+</ul>
+
+
+=======
+    <div class="parent">
+      <div class="scrollmenu">
+           <% @tags.each do |tag| %>
+            <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>
+            <div class="tag-color" style="background-color:#<%= tag.color %> ;width:20px;height:20px"></div>
+            <%= tag.name %>
+          <% end %>
+      </div>
+    </div>
+  </ul>
+  <%= link_to 'Add Tag', new_tag_path %>
+
+
+>>>>>>> e88f781675af91d560958fb644c32e1484e0312a
   <% @lessons.each do |lesson| %>
   <ul title ="lessons" class="classes_list lesson <%= lesson.tags.map { |tag| "lesson-#{tag.name}" }.join(" ") %>">
   <br/>

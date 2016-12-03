@@ -18,6 +18,12 @@
   <br/><br/>
   <strong class="beatbox_label_field">Email:</strong>
   <%= @user.email %>
+  <% @user.audios.each do |audio| %>
+    <%= @audios.find(audio).name %>
+    <audio controls>
+      <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
+    </audio>
+  <% end %>
 <br/><br/>
 
   <%= link_to "Logout", '/logout', :class => "beatbox_button" %>
