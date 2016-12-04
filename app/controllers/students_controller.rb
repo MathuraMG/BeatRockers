@@ -12,11 +12,12 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @sections = Section.all
     @audios = Audio.all
-    @lessons = Lesson.all
     @comments = @student.comments
     @comment = Comment.new
+    @lessons = Lesson.all
+    @sections = Section.all
+    @tags = Tag.all
     @users = User.all
   end
 

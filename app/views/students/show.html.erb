@@ -58,6 +58,26 @@
       <% end %>
     <br/>
 
+    <strong class="beatbox_label_field">Statistics:</strong>
+      <% @tags.each do |tag| %>
+
+        <%= tag.name %>
+        <%= tag.lessons.count %>
+        <% count = 0 %>
+        <% @student.lessons.each do |lesson| %>
+          <% lesson.tags.each do |in_tag| %>
+            <% if in_tag.id == tag.id %>
+              <% count= count +1 %>
+            <% end %>
+          <% end %>
+
+        <% end %>
+        <%= count %>
+        <% end %>
+
+
+
+
     <strong class="beatbox_label_field">Lessons:</strong>
 
     <%= simple_form_for(@student) do |f| %>
