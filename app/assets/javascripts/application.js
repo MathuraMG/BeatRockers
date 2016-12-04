@@ -107,19 +107,22 @@ function createDownloadLink() {
 }
 
 function moveBlobToFile(blob) {
-  console.log(blob);
   // document.getElementById('test-test').value = blob;
 }
 
 function sendWaveToPost(blob) {
-  console.log(blob);
   var data = new FormData();
   // var data = {audio: {name: "seomthing", audio: blob}}
+  var formInputs = $('#audio-form').serializeArray();
+  formInputs.forEach(function(input){
+    console.log(input.name + ' : ' + input.value);
+    if(input.name.localeCompare('audio[audio]')){ //when the inout is not the audio file
+      data.append(input.name, input.value);
+    }
+  });
 
-  console.log(data);
-  data.append("audio", blob, (new Date()).getTime() + ".wav");
+  data.append("audio[audio]", blob, (new Date()).getTime() + ".wav");
 
-  // console.log(data.get("audio"));
   var oReq = new XMLHttpRequest();
   oReq.open("POST", "/audios");
   oReq.send(data);
