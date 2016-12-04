@@ -6,7 +6,7 @@
   </div>
 
   <div class="form-actions">
-      <%= f.file_field :audio %>
+      <%= f.file_field :audio, id: 'audio-upload' %>
   </div>
 
   <%= f.association :students, input_html: { multiple: true }, label: false  %>
@@ -16,8 +16,8 @@
   <button onclick="stopRecording(this);" disabled>stop</button>
   <h2>Recordings</h2>
   <ul id="recordingslist"></ul>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>
+
+<div class="form-actions">
+  <button onclick="saveFile()"> Save </button>
+</div>
