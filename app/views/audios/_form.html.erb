@@ -9,6 +9,7 @@
       <%= f.file_field :audio, id: 'audio-upload' %>
   </div>
 
+  <%= f.association :lessons, input_html: { multiple: true }, label: false  %>
   <%= f.association :students, input_html: { multiple: true }, label: false  %>
   <%= f.association :users, input_html: { multiple: true }, label: false  %>
 

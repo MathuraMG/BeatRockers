@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204045314) do
+ActiveRecord::Schema.define(version: 20161204051218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20161204045314) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.string   "audio"
+  end
+
+  create_table "audios_lessons", id: false, force: :cascade do |t|
+    t.integer "audio_id",  null: false
+    t.integer "lesson_id", null: false
   end
 
   create_table "audios_students", id: false, force: :cascade do |t|
