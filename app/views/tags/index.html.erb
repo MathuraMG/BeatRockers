@@ -1,27 +1,27 @@
+
 <p id="notice"><%= notice %></p>
-
-<h1>Tags</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="beatbox_header_ul">
+  <nav>
+  <ul title="view options">
+    <li class="beatbox_header_li">
+    <br/>
+      <h4 class="text-center" style="color:#8A8A8A;">Tags</h4>
+  </li>
+  </ul>
+  </nav>
+</div>
+<div class="container topPadding">
     <% @tags.each do |tag| %>
-      <tr>
-        <td><%= tag.name %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<ul title ="lessons" class="classes_list">
+<br/>
+    <%= link_to tag do%>
+      <li style="width:10%">
+        <%= tag.name %>
+      </li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>
+    <br/><br/>
+</ul>
+<% end %>
+<br/>
+<div class="text-center"><button type="button" class="lesson_button"><%= link_to '+', new_tag_path %></button></div>
+</div>
