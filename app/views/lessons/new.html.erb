@@ -1,6 +1,6 @@
 
 <%= link_to 'Back', lessons_path %>
- <div class="beatbox_header_ul"> 
+ <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
       <li style="width:15%">
@@ -14,10 +14,8 @@
       </li>
       <li style="width:15%">
         <br/>
-          <%= link_to 'Edit', edit_lesson_path(@lesson) %>
       </li>
       </ul>
       </nav>
     </div>
 <%= render 'form', lesson: @lesson %>
-
