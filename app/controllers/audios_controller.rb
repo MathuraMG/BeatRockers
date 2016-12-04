@@ -1,4 +1,5 @@
 class AudiosController < ApplicationController
+  before_filter :authorize
   before_action :set_audio, only: [:show, :edit, :update, :destroy, :save_file]
 
   # GET /audios
@@ -10,6 +11,7 @@ class AudiosController < ApplicationController
   # GET /audios/1
   # GET /audios/1.json
   def show
+     @lessons = Lesson.all
      @students = Student.all
      @users = User.all
   end
@@ -17,6 +19,7 @@ class AudiosController < ApplicationController
   # GET /audios/new
   def new
     @audio = Audio.new
+    @lessons = Lesson.all
     @students = Student.all
     @users = User.all
   end
@@ -82,16 +85,12 @@ class AudiosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_audio
-      @audio = Audio.find(params[:id])
-    end
+  def set_audio
+    @audio = Audio.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def audio_params
-      params.require(:audio).permit(:name, :audio, :student_ids => [], :user_ids => []).tap do |base_params|
-        if params[:recorded_audio]
-          base_params.merge(audio: params[:recorded_audio])
-        end
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def audio_params
+    params.require(:audio).permit(:name, :audio, :student_ids => [], :user_ids => [], :lesson_ids => [])
+  end
 end

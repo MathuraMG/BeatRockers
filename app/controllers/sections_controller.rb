@@ -13,6 +13,9 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   def show
     @students = Student.all
+    @comments = @section.comments
+    @comment = Comment.new
+    @users = User.all
   end
 
   # GET /sections/new

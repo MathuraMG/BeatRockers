@@ -1,5 +1,13 @@
 <div class="container text-center beatbox_login">
 <%= form_tag '/login' do %>
+<<<<<<< HEAD
+||||||| merged common ancestors
+<br/>
+  <img src="<%= asset_path('Icon.png') %>" width="60px" alt ="Cinque Terre">BEAT BOX</img>
+=======
+  <br/>
+  <img src="<%= asset_path('Icon.png') %>" width="60px" alt ="Cinque Terre">BEAT BOX</img>
+>>>>>>> 9f401809d2909295132fd7eea1838fe616e362a1
   <br/>
 <div>
   <img src="<%= asset_path('Logo.png') %>" width="200px" height="100%" alt ="Cinque Terre">
@@ -11,11 +19,10 @@
   <!--<span class="beatbox_label_field text-left">Password :</span>-->
   <br/>
   <%= password_field_tag :password, nil, placeholder: "Enter your password", :class => "beatbox_textfield_properties" %>
-  <br/><br/><br/>
-  <%= submit_tag "Log In", :class => "beatbox_button" %> <br/><br/>
-  <%= submit_tag "Sign Up", :class => "beatbox_button" %>
+  <br/><br/>
+  <%= submit_tag "Log In", :class => "beatbox_button" %><br/><br/>
 <% end %>
+<%= link_to "Sign Up", new_user_path, :class => "beatbox_button"  %>
 </div>
-
 
 <!--/app/assets/images/Icon.png-->

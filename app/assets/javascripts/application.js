@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require jquery
 //= require bootstrap
@@ -39,7 +38,6 @@ var ready = function() {
 }
 
 $(document).ready(ready);
-$(document).on('turbolinks:load', ready);
 
 function __log(e, data) {
   console.log("\n" + e + " " + (data || ''));
@@ -47,6 +45,7 @@ function __log(e, data) {
 
 var audio_context;
 var recorder;
+var globBlob;
 
 function startUserMedia(stream) {
   var input = audio_context.createMediaStreamSource(stream);
@@ -72,54 +71,49 @@ function stopRecording(button) {
   button.disabled = true;
   button.previousElementSibling.disabled = false;
   __log('Stopped recording.');
-
   // create WAV download link using audio data blob
-  createDownloadLink();
-
+  displayFile();
   recorder.clear();
 }
 
-function createDownloadLink() {
+function displayFile() {
   recorder && recorder.exportWAV(function(blob) {
     var url = URL.createObjectURL(blob);
     // http://stackoverflow.com/questions/18801268/save-audio-file-in-rails
-    sendWaveToPost(blob);
 
     //http://stackoverflow.com/questions/27373620/saving-an-audio-blob-as-a-file-in-a-rails-app
     var li = document.createElement('li');
     var au = document.createElement('audio');
-    var hf = document.createElement('a');
-    var saveButton = document.createElement('button');
 
     au.controls = true;
     au.src = url;
-    hf.href = url;
-    hf.download = new Date().toISOString() + '.wav';
-    hf.innerHTML = hf.download;
-    saveButton.innerHTML = 'SAVE';
+
     // saveButton.onclick = moveBlobToFile(url);
     li.appendChild(au);
-    li.appendChild(hf);
-    li.appendChild(saveButton)
     recordingslist.appendChild(li);
+
+    globBlob = blob;
   });
 
 }
 
-function moveBlobToFile(blob) {
-  console.log(blob);
-  // document.getElementById('test-test').value = blob;
+function saveFile() {
+  // console.log(blob);
+  uploadForm(globBlob);
+
 }
 
-function sendWaveToPost(blob) {
-  console.log(blob);
-  var data = new FormData();
-  // var data = {audio: {name: "seomthing", audio: blob}}
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {type:mime});
+}
 
-  console.log(data);
-  data.append("audio", blob, (new Date()).getTime() + ".wav");
-
-  // console.log(data.get("audio"));
+function postData(data)
+{
   var oReq = new XMLHttpRequest();
   oReq.open("POST", "/audios");
   oReq.send(data);
@@ -130,6 +124,38 @@ function sendWaveToPost(blob) {
       console.log("Error " + oReq.status + " occurred uploading your file.");
     }
   };
+}
+
+function uploadForm(blob) {
+  var data = new FormData();
+  // var data = {audio: {name: "seomthing", audio: blob}}
+  var formInputs = $('#audio-form').serializeArray();
+
+  if(blob) { // implying we have audio recording
+    formInputs.forEach(function(input){
+      console.log(input.name + ' : ' + input.value);
+      if(input.name.localeCompare('audio[audio]')){ //when the inout is not the audio file
+        data.append(input.name, input.value);
+      }
+    });
+    data.append("audio[audio]", blob, (new Date()).getTime() + ".wav");
+    postData(data);
+
+  } else { //implying we have uploaded an audio file
+    console.log('audio upload testing');
+    formInputs.forEach(function(input){
+      console.log(input.name + ' : ' + input.value);
+      data.append(input.name, input.value);
+    });
+    var file = $('#audio-upload')[0].files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = function (e) {
+      var dataURL = e.target.result;
+      data.append("audio[audio]", dataURLtoBlob(dataURL), (new Date()).getTime() + ".wav");
+      postData(data);
+    };
+  }
 }
 
 window.onload = function init() {
