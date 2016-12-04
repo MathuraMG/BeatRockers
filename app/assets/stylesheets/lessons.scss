@@ -6,6 +6,11 @@ body {
   background-color: #FFFFFF;
 }
 
+.lessonAudioList {
+  background-color: #FAFAFA;
+}
+
+
 .lesson_button {
 	width: 40px;
 	height: 40px;
@@ -22,13 +27,14 @@ body {
      text-align:center;
  }
 
-div.scrollmenu {
+span.scrollmenu {
+    display: block;
     background-color: #FFF;
     overflow: auto;
     white-space: nowrap;
 }
 
-div.scrollmenu a {
+span.scrollmenu a {
     display: inline-block;
     color: white;
     text-align: center;
@@ -36,6 +42,6 @@ div.scrollmenu a {
     text-decoration: none;
 }
 
-div.scrollmenu a:hover {
+span.scrollmenu a:hover {
     background-color: #777;
 }

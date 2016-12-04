@@ -34,10 +34,11 @@
   <div>
     <br/>
     <%= f.label :students, :class => "beatbox_label_field" %>
-    <%= f.association :tags, input_html: { multiple: true }, :class => "beatbox_textfield_properties", label: false %>
+    <%= f.association :tags, input_html: { multiple: true }, :size => 40, :class => "beatbox_textfield_properties", label: false %>
   </div>
 
   <div class="actions text-center">
+    <br/>
     <input class="beatbox_button" type="submit" name="commit" value="Create Lesson" data-disable-with="Create Lesson">
   </div>
 

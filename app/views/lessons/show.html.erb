@@ -9,7 +9,7 @@
       </li>
       <li style="width:70%">
         <br/>
-          <h4 class="text-center" style="color:#8A8A8A;">Lessons</h4>
+          <h4 class="text-center" style="color:#8A8A8A;"><%= @lesson.name %></h4>
       </li>
       <li style="width:15%">
         <br/>
@@ -50,18 +50,18 @@
   </ul>
 <br/>
 <% @lesson.tags.each do |tag| %>
-  <div class="beatbox_lesson_circle" style="background:<%= @tags.find(tag).color%>"></div>
-  <br/>
+  <span class="beatbox_lesson_circle" style="background:<%= @tags.find(tag).color%>"><%= @tags.find(tag).name%></span> &nbsp
 <% end %>
-
-<strong class="beatbox_label_field">Recordings:</strong><br/>
+<br/><br/>
+<strong class="beatbox_label_field">Records:</strong>
+</div>
 <br/>
+<div class="lessonAudioList text-center bottomPadding">
 <% @lesson.audios.each do |audio| %>
   <%= @audios.find(audio).name %>
   <audio controls>
       <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>
   <% end %>
-<br/>
-
 </div>
+<br/>
