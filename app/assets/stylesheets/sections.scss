@@ -5,7 +5,17 @@
 .classes_list {
 	border-bottom-color: #E7E5E5;
 	border-bottom-style: solid;
-    border-bottom-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.studentList {
+	display: none;
+	background-color: #FFFFFF;
+}
+
+.comments {
+	display: none;
+	background-color: #FAFAFA;
 }
 
 li {
