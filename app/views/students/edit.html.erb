@@ -1,4 +1,4 @@
-<div class="beatbox_header_ul"> 
+<div class="beatbox_header_ul">
     <nav>
       <ul title="view options">
       <li style="width:15%">
@@ -13,12 +13,7 @@
       </ul>
     </nav>
 </div>
-<div class="container topPadding">
-<br/>
-<div class="text-center">
-</div>
-
-<%= render 'form', student: @student %> 
+<%= render 'form', student: @student %>
 <br/>
 <%= link_to 'Delete', @student, method: :delete, data: { confirm: 'Are you sure?' } %>
 

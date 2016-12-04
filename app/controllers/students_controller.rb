@@ -45,6 +45,16 @@ class StudentsController < ApplicationController
     end
   end
 
+  def show
+    @audios = Audio.all
+    @comments = @student.comments
+    @comment = Comment.new
+    @lessons = Lesson.all
+    @sections = Section.all
+    @tags = Tag.all
+    @users = User.all
+  end
+
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update

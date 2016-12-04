@@ -12,33 +12,38 @@
   <% end %>
   <form>
   <div class="container topPadding">
-  <div class="form-group">
+  <div class="classes_list">
+    <br/>
     <%= f.label :name, :class => "beatbox_label_field" %>
-    <%= f.input :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
+    <%= f.text_field :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
   </div>
 
-  <div class="form-group">
+  <div class="classes_list">
+    <br/>
     <%= f.label :age , :class => "beatbox_label_field"%>
-    <%= f.input :age,placeholder: "Enter age", :class => "beatbox_textfield_properties" %>
+    <%= f.text_field :age,placeholder: "Enter age", :class => "beatbox_textfield_properties" %>
   </div>
 
-  <div class="form-group">
+  <div class="classes_list">
+    <br/>
     <%= f.label :gender, :class => "beatbox_label_field" %>
-    <%= f.input :gender,placeholder: "Enter gender", :class => "beatbox_textfield_properties" %>
+    <%= f.text_field :gender,placeholder: "Enter gender", :class => "beatbox_textfield_properties" %>
   </div>
 
-  <div class="form-group">
+  <div class="classes_list">
+    <br/>
     <%= f.label :profile, :class => "beatbox_label_field" %>
-    <%= f.input :profile,placeholder: "Enter profile", :class => "beatbox_textfield_properties" %>
+    <%= f.text_field :profile,placeholder: "Enter profile", :class => "beatbox_textfield_properties" %>
   </div>
 
   <div class="field">
-    <%= f.label :color %>
+    <br/>
     <%= f.input :color, as: :minicolors %>
   </div>
 
   </div>
   <div class="text-center">
+  <br/>
   <%= f.submit :class => "beatbox_button" %>
   </form>
 <%end%>
