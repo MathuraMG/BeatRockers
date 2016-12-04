@@ -1,30 +1,51 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#audioToggle").click(function () {
+            $(".audioList").slideToggle();
+        });
+    });
+</script>
 <p id="notice"><%= notice %></p>
-    <div class="beatbox_header_ul"> 
-      <nav>
-      <ul title="view options">
-        <li class="beatbox_header_li">
-        <br/>
-          <h4 class="text-center" style="color:#8A8A8A;">User Profile</h4>
-      </li>
-      </ul>
-      </nav>
+<div class="beatbox_header_ul">
+    <nav>
+        <ul title="view options">
+            <li class="beatbox_header_li">
+                <br/>
+                <h4 class="text-center" style="color:#8A8A8A;">User Profile</h4>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container topPadding">
+    <br/>
+    <div class="text-center">
+        <div class="beatbox_users_circle"><%=@user.name[0..1]%></div>
     </div>
-  <div class="text-center topPadding">
-  <br/>
-<img src="<%= asset_path('kayla.png') %>" class="img-circle" alt="Student profile picture" height="150" width="150">
- <br/><br/>
-	<strong class="beatbox_label_field">Name:</strong>
-  <%= @user.name %>
-  <br/><br/>
-  <strong class="beatbox_label_field">Email:</strong>
-  <%= @user.email %>
-  <% @user.audios.each do |audio| %>
-    <%= @audios.find(audio).name %>
-    <audio controls>
-      <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
-    </audio>
-  <% end %>
-<br/><br/>
-
-  <%= link_to "Logout", '/logout', :class => "beatbox_button" %>
+    <br/>
+    <div class="classes_list">
+        <img src="<%= asset_path('Profile.png') %>" width="30px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbsp<%= @user.name %>
+        <br/><br/>
+    </div>
+    <br/>
+    <div class="classes_list">
+        <img src="<%= asset_path('Page 1.png') %>" width="30px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbsp<%= @user.email %>
+        <br/><br/>
+    </div>
+    <br/>
+    <div class="classes_list" id="audioToggle">
+        <img src="<%= asset_path('Group.png') %>" width="30px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbspView My Records
+        <br/><br/>
+    </div>
+  </div>
+    <div class="audioList text-center">
+        <% @user.audios.each do |audio| %>
+        <%= @audios.find(audio).name %>
+        <audio controls>
+            <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
+        </audio>
+        <% end %>
+    </div>
+    <br/><br/>
+    <div class="container text-center bottomPadding"><button type="button" class="beatbox_button"><%= link_to "Logout", '/logout'%></div>
 </div>

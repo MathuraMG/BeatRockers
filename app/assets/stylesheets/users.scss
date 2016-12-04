@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.audioList {
+  display: none;
+  background-color: #FAFAFA;
+}
+
+.beatbox_users_circle {
+    display:inline-block;
+		width:150px;
+    height:150px;
+    border-radius:75px;
+    font-size:75px;
+    color:#FFFFFF;
+    line-height:150px;
+    text-align:center;
+    background-color: #CECECE
+}
