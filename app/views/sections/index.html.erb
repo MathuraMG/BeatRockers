@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-    <div class="beatbox_header_ul"> 
+    <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
         <li class="beatbox_header_li">
@@ -9,18 +9,20 @@
       </ul>
       </nav>
     </div>
-<div class="container text-center topPadding">
-  <div class="container">
+<div class="container topPadding">
     <% @sections.each do |section| %>
+    <%= link_to section  do%>
     <ul title ="classes" class="classes_list">
-      <li>
-        <%= link_to section  do%>
-          <%= section.name %>
-        <% end %>
+      <br/>
+      <li style="width:90%;">
+        <%= section.name %>
+      </li>
+      <li style="width:10%;">
+        <img src="<%= asset_path('arrowLeft.png') %>" alt="Lessons" height="20" width="20"><br/><br/>
       </li>
       </ul>
     <% end %>
-    </div>
+    <% end %>
   <br/>
-  <button type="button" class="lesson_button"><%= link_to '+', new_section_path %></button>
+  <div class="text-center"><button type="button" class="lesson_button"><%= link_to '+', new_section_path %></button></div>
 </div>

@@ -17,82 +17,128 @@
         </ul>
     </nav>
 </div>
-<div class="container topPadding">
-    <p id="notice"><%= notice %></p>
-    <div class="text-center">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#audioToggle").click(function () {
+            $(".studentList").slideToggle();
+        });
 
-        <img
-            src="http://www.bordeaux-tourism.co.uk/var/ezwebin_site/storage/images/media/images/regards-bordelais/jean-poutge/profil-jean/12599-2-fre-FR/Profil-Jean_format_360x360.jpg"
-            class="img-circle"
-            alt="Student profile picture"
-            height="150"
-            width="150">
-        <br/><br/><%= @student.name%>
-        &nbsp
-        <%= @student.age %>
-        &nbsp
-        <%= @student.gender %>
+        $("#commentToggle").click(function () {
+            $(".lessonsCompleted").slideToggle();
+        });
+    });
+</script>
+<p id="notice"><%= notice %></p>
+<div class="container topPadding">
+    <ul title="students" class="students_list">
+        <li>
+            <div class="beatbox_student_circle" style="background:<%=@student.color%>"><%=@student.name[0..1] %></div>
+        </li>
+        <li>&nbsp&nbsp<%=@student.name %>
+            <br/>&nbsp&nbsp<%=@student.age%>,<%=@student.profile%>
+            <br/>
+            <br/>
+        </li>
+    </ul>
+</div>
+<div class="lessonAudioList text-center">
+    <% @student.audios.each do |audio| %>
+    <%= @audios.find(audio).name %>
+    <audio controls>
+        <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
+    </audio>
+    <% end %>
+</div>
+
+<div class="container">
+    <div class="classes_list" id="audioToggle">
+        <br/>
+        <img src="<%= asset_path('ClassBlack.png') %>" width="30px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbspView Classes
         <br/><br/>
     </div>
-    <p>
-        <strong class="beatbox_label_field">Classes Enrolled In:</strong><br/>
-        <br/>
+
+    <div class="studentList">
         <% @student.sections.each do |section| %>
-        <%= @sections.find(section).name %>
+        <ul title="student">
+            <br/>
+            <li>
+                <%= @sections.find(section).name %>
+            </li>
+            <br/>
+        </ul>
         <% end %>
-    </p>
+    </div>
 
-    <p>
-        <strong class="beatbox_label_field">Profile:</strong><br/>
-        <%= @student.profile %>
-    </p>
+    <div class="classes_list" id="commentToggle">
+        <br/>
+        <img src="<%= asset_path('LessonBlack.png') %>" width="25px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbspView Lesson
+        <br/><br/>
+    </div>
+</div>
 
-    <br/>
-    <strong class="beatbox_label_field">Recordings:</strong><br/>
-    <br/>
-    <% @student.audios.each do |audio| %>
-      <%= @audios.find(audio).name %>
-      <audio controls>
-          <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
-      </audio>
-      <% end %>
-    <br/>
+    <div class="lessonsCompleted">
+      <div class="container">
+        <%= simple_form_for(@student) do |f| %>
+        <ul title="student">
+            <br/>
+            <li>
+                <%= f.association :lessons, as: :check_boxes, input_html: { multiple: true }, label: false  %>
+            </li>
+        </ul>
+        <div class="text-center">
+            <%= f.button :submit, "Update Lessons Completed" , :class => "beatbox_button" %>
+        </div>
+        <br/>
+        <% end %>
+    </div>
+  </div>
 
-    <strong class="beatbox_label_field">Lessons:</strong>
 
-    <%= simple_form_for(@student) do |f| %>
-      <%= f.association :lessons, as: :check_boxes, input_html: { multiple: true }, label: false  %>
+<!--<strong class="beatbox_label_field">Statistics:</strong>
+<% @tags.each do |tag| %>
+<%= tag.name %>
+<%= tag.lessons.count %>
+<% count = 0 %>
+<% @student.lessons.each do |lesson| %>
+<% lesson.tags.each do |in_tag| %>
+<% if in_tag.id == tag.id %>
+<% count= count +1 %>
+<% end %>
+<% end %>
+<% end %>
+<%= count %>
+<% end %>-->
 
-      <div class="text-center">
-          <%= f.button :submit, "Update Lessons Completed" , :class => "beatbox_button" %>
-      </div>
-    <% end %>
-
-    <strong class="beatbox_label_field">Comments:</strong>
-
+<br/>
+<strong class="beatbox_label_field">Comments:</strong>
+<div class="commentsVisible">
+<div class="container">
     <% @comments.each do |comment| %>
     <ul>
         <li>
-            <h5><%= comment.comments_text %>
-                <i><%= @users.find(comment.user_ids[0]).name %><%= comment.created_at %>
-                </i>
-            </h5>
+            <h5><%= comment.comments_text %></h5>
+            <h6>
+                <i><%= @users.find(comment.user_ids[0]).name %></i>
+            </h6>
+            <!--<%= comment.created_at %>-->
         </li>
     </ul>
     <% end %>
-
     <%= simple_form_for(@comment) do |f| %>
-      <%= f.error_notification %>
-      <br/>
-      <div class="form-inputs">
-          <%= f.input :comments_text, label: false %>
-      </div>
+    <%= f.error_notification %>
+    <br/>
+    <div class="form-inputs">
+        <%= f.input :comments_text, label: false %>
+    </div>
+    <%=f.hidden_field :section_id, :value => @student.id %>
+    <br/>
+    <div class="text-center bottomPadding">
+        <%= f.button :submit, :class => "beatbox_button" %>
+    </div>
+</div>
+<% end %>
+</div>
 
-      <%=f.hidden_field :student_id, :value => @student.id %>
-
-      <br/>
-      <div class="text-center">
-          <%= f.button :submit, :class => "beatbox_button" %>
-      </div>
-    <% end %>
+<br/><br/><br/>
 </div>

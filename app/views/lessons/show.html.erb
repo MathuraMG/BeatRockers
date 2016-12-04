@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
- <div class="beatbox_header_ul">
+  <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
       <li style="width:15%">
@@ -9,7 +9,7 @@
       </li>
       <li style="width:70%">
         <br/>
-          <h4 class="text-center" style="color:#8A8A8A;">Lessons</h4>
+          <h4 class="text-center" style="color:#8A8A8A;"><%= @lesson.name %></h4>
       </li>
       <li style="width:15%">
         <br/>
@@ -17,34 +17,51 @@
       </li>
       </ul>
       </nav>
-    </div>
-<div class = "container text-center topPadding">
-<p>
-  <strong>Name:</strong>
+</div>
+<div class = "container topPadding">
+<ul class="classes_list">
+<li>
+  <br/>
+  <strong>Lesson Name</strong>
+  <br/>
   <%= @lesson.name %>
-</p>
-
-<p>
-  <strong>Nickame:</strong>
+  <br/><br/>
+</li>
+</ul>
+<ul class="classes_list">
+<li>
+  <br/>
+  <strong>Subtitle</strong>
+  <br/>
   <%= @lesson.nickname %>
-</p>
-<br>
-<p>
-  <strong>Notes:</strong>
-  <%= @lesson.notes %>
-</p>
-<% @lesson.tags.each do |tag| %>
-  <%= @tags.find(tag).name %>
-<% end %>
-
-<strong class="beatbox_label_field">Recordings:</strong><br/>
+  <br/><br/>
+</li>
 <br/>
+</ul>
+<ul class="classes_list">
+<li>
+  <br/>
+  <strong>Notes</strong>
+  <br/>
+  <%= @lesson.notes %>
+  <br/>
+  <br/>
+  </li>
+  </ul>
+<br/>
+<% @lesson.tags.each do |tag| %>
+  <span class="beatbox_lesson_circle" style="background:<%= @tags.find(tag).color%>"><%= @tags.find(tag).name%></span> &nbsp
+<% end %>
+<br/><br/>
+<strong class="beatbox_label_field">Records:</strong>
+</div>
+<br/>
+<div class="lessonAudioList text-center bottomPadding">
 <% @lesson.audios.each do |audio| %>
   <%= @audios.find(audio).name %>
   <audio controls>
       <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>
   <% end %>
-<br/>
-
 </div>
+<br/>

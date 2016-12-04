@@ -1,62 +1,91 @@
-<div class="beatbox_header_ul">
-    <nav>
-        <ul title="view options">
-            <li style="width:15%">
-                <%= link_to sections_path do%>
-                <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
-                <% end %>
-            </li>
-            <li style="width:70%">
-                <br/>
-                <h4 class="text-center" style="color:#8A8A8A;"><%= @section.name %></h4>
-            </li>
-            <li style="width:15%">
-                <br/>
-                <%= link_to 'Edit', edit_section_path(@section) %>
-            </li>
-        </ul>
-    </nav>
-</div>
-<div class="container topPadding">
-    <p id="notice"><%= notice %></p>
-    <p>
-        <% @section.students.each do |student| %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#audioToggle").click(function () {
+            $(".studentList").slideToggle();
+        });
+
+        $("#commentToggle").click(function () {
+            $(".comments").slideToggle();
+        });
+    });
+</script>
+<p id="notice">
+    < <div class="beatbox_header_ul">
+        <nav>
+            <ul title="view options">
+                <li style="width:15%">
+                    <%= link_to sections_path do%>
+                    <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+                    <% end %>
+                </li>
+                <li style="width:70%">
+                    <br/>
+                    <h4 class="text-center" style="color:#8A8A8A;"><%= @section.name %></h4>
+                </li>
+                <li style="width:15%">
+                    <br/>
+                    <%= link_to 'Edit', edit_section_path(@section) %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container topPadding">
+        <p id="notice"><%= notice %></p>
         <br/>
-        <ul title="student" class="classes_list">
-            <li>
-                <%=link_to @students.find(student).name,  @students.find(student) %>
-            </li>
+        <div class="text-center">
+            <div class="beatbox_users_circle"><%=@section.name[0..1]%></div>
+        </div>
+        <br/>
+        <div class="classes_list" id="audioToggle">
+            <img src="<%= asset_path('Students.png') %>" width="30px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbspView Students
             <br/><br/>
+        </div>
+        <div class="studentList">
+            <% @section.students.each do |student| %>
+            <%= link_to  @students.find(student) do%>
+            <ul title="student">
+                <br/>
+                <li>
+                    <%= @students.find(student).name %>
+                </li>
+                <br/><br/>
+            </ul>
+            <% end %>
+            <% end %>
+        </div>
+        <br/>
+        <div class="classes_list" id="commentToggle">
+            <img src="<%= asset_path('Comments.png') %>" width="30px" height="100%" alt="Cinque Terre">&nbsp&nbsp&nbspView Comments
+            <br/><br/>
+        </div>
+    </div>
+    <div class="comments">
+      <div class="container">
+        <% @comments.each do |comment| %>
+        <ul>
+            <li>
+                <h5><%= comment.comments_text %></h5>
+                <h6>
+                    <i><%= @users.find(comment.user_ids[0]).name %></i>
+                </h6>
+                <!--<%= comment.created_at %>-->
+            </li>
         </ul>
         <% end %>
-    </p>
-
-    <strong class="beatbox_label_field">Comments:</strong>
-
-    <% @comments.each do |comment| %>
-    <ul>
-        <li>
-            <h5><%= comment.comments_text %>
-                <i><%= @users.find(comment.user_ids[0]).name %><%= comment.created_at %>
-                </i>
-            </h5>
-        </li>
-    </ul>
-    <% end %>
-
-    <%= simple_form_for(@comment) do |f| %>
-    <%= f.error_notification %>
-    <br/>
-    <div class="form-inputs">
-        <%= f.input :comments_text, label: false %>
+        <%= simple_form_for(@comment) do |f| %>
+        <%= f.error_notification %>
+        <br/>
+        <div class="form-inputs">
+            <%= f.input :comments_text, label: false %>
+        </div>
+        <%=f.hidden_field :section_id, :value => @section.id %>
+        <br/>
+        <div class="text-center bottomPadding">
+            <%= f.button :submit, :class => "beatbox_button" %>
+        </div>
     </div>
-
-    <%=f.hidden_field :section_id, :value => @section.id %>
-
-    <br/>
-    <div class="text-center">
-        <%= f.button :submit, :class => "beatbox_button" %>
-    </div>
+  </div>
     <% end %>
-
+</div>
 </div>

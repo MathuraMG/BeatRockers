@@ -1,16 +1,17 @@
 <%= simple_form_for(@section) do |f| %>
   <%= f.error_notification %>
+  <form>
   <div class="container topPadding">
-  <div class="form-inputs">
-    <%= f.input :name, placeholder: "Enter your email", :class => "beatbox_textfield_properties" %>
+  <div class="form-group">
+   <%= f.label :name, :class => "beatbox_label_field" %>
+    <%= f.text_field :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
   </div>
-
   <div>
     <%= f.association :students, input_html: { multiple: true },placeholder: "Enter your email", :class => "beatbox_textfield_properties", label: false %>
   </div>
-
-  <div class="form-actions">
+  <br/><br/>
+  <div class="form-actions text-center">
     <%= f.button :submit, :class => "beatbox_button" %>
   </div>
-
+  </div>
 <% end %>

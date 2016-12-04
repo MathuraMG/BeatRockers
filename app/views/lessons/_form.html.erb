@@ -13,28 +13,35 @@
 
   <div class="container topPadding">
   <form>
-  <div class="form-group">
+
+  <div class="classes_list">
+    <br/>
     <%= f.label :name, :class => "beatbox_label_field" %>
     <%= f.text_field :name, placeholder: "Enter the Lesson name", :class => "beatbox_textfield_properties" %>
   </div>
-
-  <div class="form-group">
+  <div class="classes_list">
+    <br/>
     <%= f.label :nickname, :class => "beatbox_label_field" %>
     <%= f.text_field :nickname, placeholder: "Enter the Lesson nickname", :class => "beatbox_textfield_properties" %>
   </div>
 
-  <div class="form-group">
+  <div class="classes_list">
+    <br/>
     <%= f.label :notes, :class => "beatbox_label_field" %>
     <%= f.text_area :notes, placeholder: "Notes", :class => "beatbox_textfield_properties" %>
   </div>
 
-  <div class="form-group">
-    <%= f.association :tags, input_html: { multiple: true }, :class => "beatbox_textfield_properties", label: false %>
+  <div>
+    <br/>
+    <%= f.label :students, :class => "beatbox_label_field" %>
+    <%= f.association :tags, input_html: { multiple: true }, :size => 40, :class => "beatbox_textfield_properties", label: false %>
   </div>
 
   <div class="actions text-center">
+    <br/>
     <input class="beatbox_button" type="submit" name="commit" value="Create Lesson" data-disable-with="Create Lesson">
   </div>
+
   </form>
   </div>
 <% end %>

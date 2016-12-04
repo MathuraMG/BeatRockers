@@ -1,10 +1,10 @@
-<div class="container text-center">
+<div class="container text-center beatbox_login">
 <%= form_tag '/login' do %>
-  <br/>
-  <img src="<%= asset_path('Icon.png') %>" width="60px" alt ="Cinque Terre">BEAT BOX</img>
-  <br/>
+<div>
+  <img src="<%= asset_path('Logo.png') %>" width="200px" height="100%" alt ="Cinque Terre">
+</div>
   <!--<span class="beatbox_label_field">Email :</span>-->
-  <br/>
+  <br/><br/>
   <%= text_field_tag :email, nil, placeholder: "Enter your email", :class => "beatbox_textfield_properties" %>
   <br/>
   <!--<span class="beatbox_label_field text-left">Password :</span>-->

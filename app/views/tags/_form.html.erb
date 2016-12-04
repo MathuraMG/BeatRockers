@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@tag) do |f| %>
   <% if tag.errors.any? %>
     <div id="error_explanation">
@@ -10,18 +11,22 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="container topPadding">
+  <div class="classes_list">
+    <br/>
     <%= f.label :name %>
-    <%= f.input :name %>
+    <%= f.text_field :name, placeholder: "Enter the tag name", :class => "beatbox_textfield_properties" %>
   </div>
 
-  <div class="field">
-    <%= f.label :color %>
+  <div class="classes_list">
+    <br/>
     <%= f.input :color, as: :minicolors %>
+    <br/>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <br/>
+  <div class="text-center">
+      <%= f.submit :class => "beatbox_button"  %>
+      <div>
   </div>
+</div>
 <% end %>

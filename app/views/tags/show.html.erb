@@ -1,9 +1,26 @@
 <p id="notice"><%= notice %></p>
-
+  <div class="beatbox_header_ul">
+      <nav>
+      <ul title="view options">
+      <li style="width:15%">
+         <%= link_to tags_path do%>
+           <img src="<%= asset_path('arrowGrey.png') %>" alt="Lessons" height="30" width="30">
+         <% end %>
+      </li>
+      <li style="width:70%">
+        <br/>
+          <h4 class="text-center" style="color:#8A8A8A;"><%= @tag.name %></h4>
+      </li>
+      <li style="width:15%">
+        <br/>
+          <%= link_to 'Edit', edit_tag_path(@tag) %>
+      </li>
+      </ul>
+      </nav>
+</div>
+<div class="container topPadding">
 <p>
   <strong>Name:</strong>
   <%= @tag.name %>
 </p>
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+</div>

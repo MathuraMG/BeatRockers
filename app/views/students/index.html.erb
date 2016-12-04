@@ -1,6 +1,6 @@
 
 <p id="notice"><%= notice %></p>
-    <div class="beatbox_header_ul"> 
+    <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
         <li class="beatbox_header_li">
@@ -10,24 +10,23 @@
       </ul>
       </nav>
     </div>
-<div class="container text-center topPadding">
+<div class="container topPadding">
   <div class="col-md-3 col-md-offset-4">
   <br>
   <p id="notice"><%= notice %></p>
         <% @students.each do |student| %>
           <ul title ="students" class="students_list">
             <%= link_to student  do%>
-              <li><img src="http://www.bordeaux-tourism.co.uk/var/ezwebin_site/storage/images/media/images/regards-bordelais/jean-poutge/profil-jean/12599-2-fre-FR/Profil-Jean_format_360x360.jpg" class="img-circle" alt="Student profile picture" height="42" width="42"></li>
-              <li> &nbsp <%=student.name%> <br/>
-                   &nbsp <%= student.age %>
+              <!--<li><img src="http://www.bordeaux-tourism.co.uk/var/ezwebin_site/storage/images/media/images/regards-bordelais/jean-poutge/profil-jean/12599-2-fre-FR/Profil-Jean_format_360x360.jpg" class="img-circle" alt="Student profile picture" height="42" width="42"></li>-->
+              <li><div class="beatbox_student_circle" style="background:<%=student.color%>"><%=student.name[0..1] %></div></li>
+              <li>&nbsp&nbsp<%=student.name %>
+              <br/>&nbsp&nbsp<%=student.age%>,<%=student.profile%>
               </li>
             <% end %>
-            <br/>
-            <br/>
-            <br/>
+            <br/><br/><br/>
             </ul>
             <br/>
         <% end %>
-  <button type="button" class="lesson_button"><%= link_to '+', new_student_path %></button>
+  <div class="text-center"><button type="button" class="lesson_button"><%= link_to '+', new_student_path %></button></div>
   </div>
 </div>
