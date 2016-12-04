@@ -1,6 +1,6 @@
 <div class="container text-center">
 <%= form_tag '/login' do %>
-<br/>  
+  <br/>
   <img src="<%= asset_path('Icon.png') %>" width="60px" alt ="Cinque Terre">BEAT BOX</img>
   <br/>
   <!--<span class="beatbox_label_field">Email :</span>-->
@@ -11,11 +11,9 @@
   <br/>
   <%= password_field_tag :password, nil, placeholder: "Enter your password", :class => "beatbox_textfield_properties" %>
   <br/><br/>
-  <%= submit_tag "Log In", :class => "beatbox_button" %> <br/><br/>
-  <%= submit_tag "Sign Up", :class => "beatbox_button" %>
-
+  <%= submit_tag "Log In", :class => "beatbox_button" %><br/><br/>
 <% end %>
+<%= link_to "Sign Up", new_user_path, :class => "beatbox_button"  %>
 </div>
-
 
 <!--/app/assets/images/Icon.png-->

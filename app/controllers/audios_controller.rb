@@ -1,4 +1,5 @@
 class AudiosController < ApplicationController
+  before_filter :authorize
   before_action :set_audio, only: [:show, :edit, :update, :destroy, :save_file]
 
   # GET /audios
