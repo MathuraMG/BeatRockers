@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authorize, :only => [:index]\
 
   def new
   end
@@ -18,9 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-
-
-private
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :comment_ids => [], :audio_ids => [])
