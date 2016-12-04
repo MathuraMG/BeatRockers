@@ -13,6 +13,7 @@ class LessonsController < ApplicationController
   # GET /lessons/1.json
   def show
     @tags = Tag.all
+    @audios = Audio.all
   end
 
   # GET /lessons/new
@@ -75,6 +76,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:name, :nickname, :notes, :tag_ids => [], :student_ids => [])
+      params.require(:lesson).permit(:name, :nickname, :notes, :tag_ids => [], :student_ids => [], :audio_ids => [])
     end
 end

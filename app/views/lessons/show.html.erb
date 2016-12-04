@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
- <div class="beatbox_header_ul"> 
+ <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
       <li style="width:15%">
@@ -36,4 +36,15 @@
 <% @lesson.tags.each do |tag| %>
   <%= @tags.find(tag).name %>
 <% end %>
+
+<strong class="beatbox_label_field">Recordings:</strong><br/>
+<br/>
+<% @lesson.audios.each do |audio| %>
+  <%= @audios.find(audio).name %>
+  <audio controls>
+      <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
+  </audio>
+  <% end %>
+<br/>
+
 </div>

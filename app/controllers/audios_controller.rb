@@ -11,6 +11,7 @@ class AudiosController < ApplicationController
   # GET /audios/1
   # GET /audios/1.json
   def show
+     @lessons = Lesson.all
      @students = Student.all
      @users = User.all
   end
@@ -18,6 +19,7 @@ class AudiosController < ApplicationController
   # GET /audios/new
   def new
     @audio = Audio.new
+    @lessons = Lesson.all
     @students = Student.all
     @users = User.all
   end
@@ -89,6 +91,6 @@ class AudiosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def audio_params
-    params.require(:audio).permit(:name, :audio, :student_ids => [], :user_ids => [])
+    params.require(:audio).permit(:name, :audio, :student_ids => [], :user_ids => [], :lesson_ids => [])
   end
 end
