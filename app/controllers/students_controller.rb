@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
   def show
     @sections = Section.all
     @audios = Audio.all
+    @lessons = Lesson.all
     @comments = @student.comments
     @comment = Comment.new
     @users = User.all
@@ -76,6 +77,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :age, :gender,:profile, :color, :section_ids => [], :audio_ids => [])
+      params.require(:student).permit(:name, :age, :gender,:profile, :color, :section_ids => [], :audio_ids => [], :lesson_ids => [])
     end
 end
