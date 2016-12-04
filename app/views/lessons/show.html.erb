@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
- <div class="beatbox_header_ul"> 
+  <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
       <li style="width:15%">
@@ -17,23 +17,40 @@
       </li>
       </ul>
       </nav>
-    </div>
-<div class = "container text-center topPadding">
-<p>
-  <strong>Name:</strong>
+</div>
+<div class = "container topPadding">
+<ul class="classes_list">
+<li>
+  <br/>
+  <strong>Lesson Name</strong>
+  <br/>
   <%= @lesson.name %>
-</p>
-
-<p>
-  <strong>Nickame:</strong>
+  <br/><br/>
+</li>
+</ul>
+<ul class="classes_list">
+<li>
+  <br/>
+  <strong>Subtitle</strong>
+  <br/>
   <%= @lesson.nickname %>
-</p>
-<br>
-<p>
-  <strong>Notes:</strong>
+  <br/><br/>
+</li>
+<br/>
+</ul>
+<ul class="classes_list">
+<li>
+  <br/>
+  <strong>Notes</strong>
+  <br/>
   <%= @lesson.notes %>
-</p>
+  <br/>
+  <br/>
+  </li>
+  </ul>
+<br/>
 <% @lesson.tags.each do |tag| %>
-  <%= @tags.find(tag).name %>
+  <div class="beatbox_lesson_circle" style="background:<%= @tags.find(tag).color%>"></div>
+  <br/>
 <% end %>
 </div>

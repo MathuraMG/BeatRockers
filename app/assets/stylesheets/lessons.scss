@@ -14,15 +14,13 @@ body {
     font-size: 20px;
  }
 
-lesson_li {
-	float: none;
-    font-size: 12px;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 12px;
-}
+ .beatbox_lesson_circle {
+ 		width:10px;
+     height:10px;
+     border-radius:5px;
+     line-height:10px;
+     text-align:center;
+ }
 
 div.scrollmenu {
     background-color: #FFF;

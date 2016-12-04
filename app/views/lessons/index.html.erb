@@ -1,6 +1,6 @@
 
 <p id="notice"><%= notice %></p>
-    <div class="beatbox_header_ul"> 
+    <div class="beatbox_header_ul">
       <nav>
       <ul title="view options">
         <li class="beatbox_header_li">
@@ -10,64 +10,44 @@
       </ul>
       </nav>
     </div>
-<div class="container text-center topPadding">
-  <ul title = "tags available" class="tag-list">
-<<<<<<< HEAD
+<div class="container topPadding">
+<ul title = "tags available" class="tag-list">
 <div class="parent">
-<div class="scrollmenu">
-     <% @tags.each do |tag| %>
-      <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>&nbsp<%= tag.name %>&nbsp
+<br/>
+<span class="scrollmenu">
+    <% @tags.each do |tag| %>
+    <span class="tag-color" style="background-color:<%= tag.color %>;width:20px;height:20px"><input type="checkbox" name="chk_group" value="<%= tag.name %>"/></span>&nbsp<%= tag.name %>&nbsp
     <% end %>
-</div>
+    <%= link_to 'Add Tag', new_tag_path %>
+</span>
 </div>
 </ul>
-||||||| merged common ancestors
-<div class="parent">
-<div class="scrollmenu">
-     <% @tags.each do |tag| %>
-      <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>&nbsp<%= tag.name %>&nbsp
-    <% end %>
-</div>
-</div>
-</ul>
-
-
-=======
-    <div class="parent">
-      <div class="scrollmenu">
-           <% @tags.each do |tag| %>
-            <input type="checkbox" name="chk_group" value="<%= tag.name %>"/>
-            <div class="tag-color" style="background-color:#<%= tag.color %> ;width:20px;height:20px"></div>
-            <%= tag.name %>
-          <% end %>
-      </div>
-    </div>
-  </ul>
-  <%= link_to 'Add Tag', new_tag_path %>
-
-
->>>>>>> e88f781675af91d560958fb644c32e1484e0312a
   <% @lessons.each do |lesson| %>
   <ul title ="lessons" class="classes_list lesson <%= lesson.tags.map { |tag| "lesson-#{tag.name}" }.join(" ") %>">
   <br/>
-      <li class="lesson_li" style="width:30%;">
-          <br/>
+    <%= link_to lesson  do%>
+      <li style="width:10%">
+        <ul>
           <% lesson.tags.each do |tag| %>
-            <%= @tags.find(tag).name %>
+          <li>
+            <div class="beatbox_lesson_circle" style="background:<%= @tags.find(tag).color%>">
+          </li>
           <% end %>
+        </ul>
       </li>
-      <li class="lesson_li" style="width:30%;">
-        <%= link_to lesson.nickname , lesson  %>
       </li>
-      <li class="lesson_li">
-      <br/>
-        <%=  lesson.name %>
+      <li style="width:80%;">
+        <%= lesson.name  %><br/>
+        <%= lesson.nickname %>
       </li>
-        
+      <li style="width:10%;">
+        <img src="<%= asset_path('arrowLeft.png') %>" alt="Lessons" height="20" width="20"><br/><br/>
+      </li>
+      <% end %>
   </ul>
   <% end %>
 
 <br/>
 <br/>
-<button type="button" class="lesson_button"><%= link_to '+', new_lesson_path %></button>
+<div class="text-center"><button type="button" class="lesson_button"><%= link_to '+', new_lesson_path %></button></div>
 </div>

@@ -20,7 +20,7 @@
 @import 'bootstrap';
 @import 'lessons';
 ul {
-	list-style-type: none;
+		list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -42,7 +42,7 @@ ul {
 }
 
 .topPadding {
-	padding-top: 15%;
+	padding-top: 20%;
 }
 
 .beatbox_footer_ul {
@@ -54,7 +54,7 @@ ul {
 }
 
 .beatbox_header_ul {
-	height: 8%;
+	height: 10%;
 	background-color: white;
 	border: 10px;
 	border-bottom-color: #E7E5E5;
@@ -78,16 +78,13 @@ ul {
 }
 
 .beatbox_label_field {
-	color: #4BE8C3;
+	color: #000000;
 	font-size: 14px;
 }
 
 .beatbox_textfield_properties {
 	border: none;
-	border-bottom-color: #4BE8C3;
-	border-bottom-style: solid;
-  border-bottom-width: 1px;
 	font-size: 12px;
-	width: 80%;
+	width: 100%;
 	height: 30px;
 }
