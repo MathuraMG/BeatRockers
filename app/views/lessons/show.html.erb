@@ -62,6 +62,10 @@
   <audio controls>
       <source src="<%= @audios.find(audio).audio.url %>" type="audio/mpeg">
   </audio>
-  <% end %>
+<% end %>
+<br/>
+<%= link_to new_audio_path do%>
+<img src="<%= asset_path('RecordButton.png') %>" alt="Lessons" height="100%" width="50"></img>
+<% end %>
 </div>
 <br/>
