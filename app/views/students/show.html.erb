@@ -35,10 +35,15 @@
         <li>
             <div class="beatbox_student_circle" style="background:<%=@student.color%>"><%=@student.name[0..1] %></div>
         </li>
-        <li>&nbsp&nbsp<%=@student.name %>
+        <li style="width:50%;">&nbsp&nbsp<%=@student.name %>
             <br/>&nbsp&nbsp<%=@student.age%>,<%=@student.profile%>
             <br/>
             <br/>
+        </li>
+        <li>
+          <%= link_to new_audio_path do%>
+          <img src="<%= asset_path('AddRecordButton.png') %>" alt="Lessons" height="100%" width="70"></img>
+          <% end %>
         </li>
     </ul>
 </div>
@@ -119,9 +124,8 @@
         <li>
             <h5><%= comment.comments_text %></h5>
             <h6>
-                <i><%= @users.find(comment.user_ids[0]).name %></i>
+                <i><%= @users.find(comment.user_ids[0]).name %> , <%= comment.created_at %></i>
             </h6>
-            <!--<%= comment.created_at %>-->
         </li>
     </ul>
     <% end %>

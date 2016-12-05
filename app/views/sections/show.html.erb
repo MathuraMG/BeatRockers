@@ -67,9 +67,8 @@
             <li>
                 <h5><%= comment.comments_text %></h5>
                 <h6>
-                    <i><%= @users.find(comment.user_ids[0]).name %></i>
+                    <i><%= @users.find(comment.user_ids[0]).name %> , <%= comment.created_at %></i>
                 </h6>
-                <!--<%= comment.created_at %>-->
             </li>
         </ul>
         <% end %>
