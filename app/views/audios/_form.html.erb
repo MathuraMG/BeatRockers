@@ -1,24 +1,57 @@
-<%= simple_form_for(@audio, :html => {:id => 'audio-form'}) do |f| %>
-  <%= f.error_notification %>
+<div class="container topPadding">
+    <%= simple_form_for(@audio, :html => {:id => 'audio-form'}) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
+    <div class="classes_list">
+        <br/>
+        <%= f.label :name, :class => "beatbox_label_field" %>
+        <%= f.text_field :name,placeholder: "Enter name", :class => "beatbox_textfield_properties"%>
+    </div>
+    <div class="classes_list">
+        <br/>
+        <%= f.label :audio, :class => "beatbox_label_field" %>
+        <br/>
+        <div class="form-actions">
+            <%= f.file_field :audio, id: 'audio-upload' %>
+        </div>
+    </div>
+    <div class="classes_list">
+        <br/>
+        <%= f.label :lessons, :class => "beatbox_label_field" %>
+        <%= f.association :lessons, input_html: { multiple: true }, label: false  %>
+        <br/>
+    </div>
+    <div class="classes_list">
+        <br/>
+        <%= f.label :students, :class => "beatbox_label_field" %>
+        <%= f.association :students, input_html: { multiple: true }, label: false  %>
+        <br/>
+    </div>
+    <div class="classes_list">
+        <br/>
+        <%= f.label :users, :class => "beatbox_label_field" %>
+        <%= f.association :users, input_html: { multiple: true }, label: false  %>
+        <br/>
+    </div>
+</div>
 
-  <div class="form-actions">
-      <%= f.file_field :audio, id: 'audio-upload' %>
-  </div>
+<div class="text-center">
+    <button onclick="startRecording(this);">
+        <img src="<%= asset_path('RecordButton.png') %>" alt="Record" height="100%" width="50"></img>
+    </button>
+    <button onclick="stopRecording(this);" disabled><img src="<%= asset_path('recording.png') %>" alt="Stop" height="100%" width="60"></button>
+</div>
 
-  <%= f.association :lessons, input_html: { multiple: true }, label: false  %>
-  <%= f.association :students, input_html: { multiple: true }, label: false  %>
-  <%= f.association :users, input_html: { multiple: true }, label: false  %>
+<div class="commentsVisible">
+    <div class="container bottomPadding">
+        <strong class="beatbox_label_field">Recordings:</strong>
+        <ul id="recordingslist"></ul>
+        <% end %>
 
-  <button onclick="startRecording(this);">record</button>
-  <button onclick="stopRecording(this);" disabled>stop</button>
-  <h2>Recordings</h2>
-  <ul id="recordingslist"></ul>
-<% end %>
-
-<div class="form-actions">
-  <button onclick="saveFile()"> Save </button>
+        <div class="form-actions text-center">
+            <button onclick="saveFile()">
+                <img src="<%= asset_path('save.png') %>" alt="Save" height="100%" width="50"></img>
+            </button>
+        </div>
+    </div>
 </div>

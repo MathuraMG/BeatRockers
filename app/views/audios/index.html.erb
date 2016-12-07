@@ -1,27 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Audios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @audios.each do |audio| %>
-      <tr>
-        <td><%= audio.name %></td>
-        <td><%= link_to 'Show', audio %></td>
-        <td><%= link_to 'Edit', edit_audio_path(audio) %></td>
-        <td><%= link_to 'Destroy', audio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="beatbox_header_ul">
+    <nav>
+        <ul title="view options">
+            <li style="width:100%">
+                <br/>
+                <h4 class="text-center" style="color:#8A8A8A;">Audio</h4>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container topPadding">
+        <% @audios.each do |audio| %>
+        <%= link_to audio do%>
+        <ul title="classes" class="classes_list">
+            <br/>
+            <li style="width:90%;">
+                <%= audio.name %>
+            </li>
+            <li style="width:10%;">
+                <img src="<%= asset_path('arrowLeft.png') %>" alt="Lessons" height="20" width="20"><br/><br/>
+            </li>
+        </ul>
+        <!--<td><%= link_to 'Edit', edit_audio_path(audio) %></td>
+            <td><%= link_to 'Destroy', audio, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <% end %>
+        <% end %>
 <br>
-
-<%= link_to 'New Audio', new_audio_path %>
+<div class="text-center"><button type="button" class="lesson_button"><%= link_to '+', new_audio_path %></button></div>
+</div>
