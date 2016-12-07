@@ -44,7 +44,7 @@ function __log(e, data) {
 }
 
 var audio_context;
-// var recorder;
+var recorder;
 var globBlob;
 
 function startUserMedia(stream) {
@@ -55,29 +55,29 @@ function startUserMedia(stream) {
   //input.connect(audio_context.destination);
   //__log('Input connected to audio context destination.');
 
-  window.recorder = new Recorder(input);
+  recorder = new Recorder(input);
   __log('Recorder initialised.');
 }
 
 function startRecording(button) {
-  window.recorder && window.recorder.record();
+  recorder && recorder.record();
   button.disabled = true;
   button.nextElementSibling.disabled = false;
   __log('Recording...');
 }
 
 function stopRecording(button) {
-  window.recorder && window.recorder.stop();
+  recorder && recorder.stop();
   button.disabled = true;
   button.previousElementSibling.disabled = false;
   __log('Stopped recording.');
   // create WAV download link using audio data blob
   displayFile();
-  window.recorder.clear();
+  recorder.clear();
 }
 
 function displayFile() {
-  window.recorder && window.recorder.exportWAV(function(blob) {
+  recorder && recorder.exportWAV(function(blob) {
     var url = URL.createObjectURL(blob);
     // http://stackoverflow.com/questions/18801268/save-audio-file-in-rails
 
