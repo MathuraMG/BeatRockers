@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Beat "Box"</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Beat "Box"</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+    </head>
 
-  <body>
-    <!-- <% if current_user %> -->
-      <!-- Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %> -->
-    <!-- <% else %> -->
-      <!-- <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> -->
-    <!-- <% end %> -->
-    <%= yield %>
-  </body>
-  <footer class="beatbox_footer_ul">
+    <body>
+        <!-- <% if current_user %> -->
+        <!-- Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %> -->
+        <!-- <% else %> -->
+        <!-- <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> -->
+        <!-- <% end %> -->
+        <%= yield %>
+    </body>
+
     <% if current_user %>
-    <nav>
-      <ul title="view options">
-      <li class="beatbox_footer_li">
-        <a href="/lessons"><img src="<%= asset_path('lesson.png') %>" alt="Lessons" height="30" width="30"></a>
-      </li>
-      <li class="beatbox_footer_li">
-        <a href="/students"><img src="<%= asset_path('student.png') %>" alt="Students" height="30" width="30"></a>
-      </li>
-      <li class="beatbox_footer_li">
-        <a href="/sections"><img src="<%= asset_path('class.png') %>" alt="Section" height="30" width="30"></a>
-      </li>
-      <li class="beatbox_footer_li">
-        <a href="/users"><img src="<%= asset_path('settings.png') %>" alt="Section" height="27" width="27"></a>
-      </li>
-    </nav>
-    <% end %>
-  </footer>
-</html>
+    <footer class="beatbox_footer_ul">
+        <nav>
+            <ul title="view options">
+                <li class="beatbox_footer_li">
+                    <a href="/lessons"><img src="<%= asset_path('lesson.png') %>" alt="Lessons" height="30" width="30"></a>
+                </li>
+                <li class="beatbox_footer_li">
+                    <a href="/students"><img src="<%= asset_path('student.png') %>" alt="Students" height="30" width="30"></a>
+                </li>
+                <li class="beatbox_footer_li">
+                    <a href="/sections"><img src="<%= asset_path('class.png') %>" alt="Section" height="30" width="30"></a>
+                </li>
+                <li class="beatbox_footer_li">
+                    <a href="/users"><img src="<%= asset_path('settings.png') %>" alt="Section" height="27" width="27"></a>
+                </li>
+            </nav>
+        </footer>
+        <% end %>
+
+    </html>
