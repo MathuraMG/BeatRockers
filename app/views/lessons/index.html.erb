@@ -17,7 +17,7 @@
     <% @tags.each do |tag| %>
     <span class="tag-color" style="background-color:<%= tag.color %>;width:20px;height:20px"><input type="checkbox" name="chk_group" value="<%= tag.name %>"/></span>&nbsp<%= tag.name %>&nbsp
     <% end %>
-    <%= link_to 'Add Tag', new_tag_path %>
+    <%= link_to 'Add Tag', new_tag_path, style: 'color:#000000;' %>
 </span>
 </div>
 </ul>
