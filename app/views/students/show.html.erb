@@ -41,9 +41,9 @@
             <br/>
         </li>
         <li>
-          <%= link_to new_audio_path do%>
-          <img src="<%= asset_path('AddRecordButton.png') %>" alt="Lessons" height="100%" width="70"></img>
-          <% end %>
+            <%= link_to new_audio_path do%>
+            <img src="<%= asset_path('AddRecordButton.png') %>" alt="Lessons" height="100%" width="70"></img>
+            <% end %>
         </li>
     </ul>
 </div>
@@ -83,8 +83,8 @@
     </div>
 </div>
 
-    <div class="lessonsCompleted">
-      <div class="container">
+<div class="lessonsCompleted">
+    <div class="container">
         <%= simple_form_for(@student) do |f| %>
         <ul title="student">
             <br/>
@@ -98,8 +98,7 @@
         <br/>
         <% end %>
     </div>
-  </div>
-
+</div>
 
 <!--<strong class="beatbox_label_field">Statistics:</strong>
 <% @tags.each do |tag| %>
@@ -119,31 +118,33 @@
 <br/>
 
 <div class="commentsVisible">
-<div class="container">
-  <strong class="beatbox_label_field">Comments:</strong>
-    <% @comments.each do |comment| %>
-    <ul>
-        <li>
-            <h5><%= comment.comments_text %></h5>
-            <h6>
-                <i><%= @users.find(comment.user_ids[0]).name %> , <%= comment.created_at %></i>
-            </h6>
-        </li>
-    </ul>
+    <div class="container">
+        <strong class="beatbox_label_field">Comments:</strong>
+        <% @comments.each do |comment| %>
+        <ul>
+            <li>
+                <h5><%= comment.comments_text %></h5>
+                <h6>
+                    <i><%= @users.find(comment.user_ids[0]).name %>
+                        ,
+                        <%= comment.created_at %></i>
+                </h6>
+            </li>
+        </ul>
+        <% end %>
+        <%= simple_form_for(@comment) do |f| %>
+        <%= f.error_notification %>
+        <br/>
+        <div class="form-inputs">
+            <%= f.input :comments_text, label: false %>
+        </div>
+        <%=f.hidden_field :student_id, :value => @student.id %>
+        <br/>
+        <div class="text-center bottomPadding">
+            <%= f.button :submit, :class => "beatbox_button" %>
+        </div>
+    </div>
     <% end %>
-    <%= simple_form_for(@comment) do |f| %>
-    <%= f.error_notification %>
-    <br/>
-    <div class="form-inputs">
-        <%= f.input :comments_text, label: false %>
-    </div>
-    <%=f.hidden_field :section_id, :value => @student.id %>
-    <br/>
-    <div class="text-center bottomPadding">
-        <%= f.button :submit, :class => "beatbox_button" %>
-    </div>
-</div>
-<% end %>
 </div>
 
 <br/><br/><br/>
